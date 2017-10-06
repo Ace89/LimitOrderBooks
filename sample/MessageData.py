@@ -131,7 +131,7 @@ class MessageData:
 
     def short_summary(self):
         rows, cols = np.shape(self.current_matrix)
-        current_book_time = self.current_matrix[rows-1,0] / self.seconds_in_hour
+        current_book_time = self.current_matrix[rows-1, 0] / self.seconds_in_hour
         time_floor = np.floor(current_book_time)
         mins = (current_book_time - time_floor)*60.0
         bids = 0
@@ -302,3 +302,8 @@ class MessageData:
             sell_rets.append(np.log(sell_prices[i]/sell_prices[i-1]))
 
         return np.std(buy_rets), np.std(sell_rets)
+
+    def book_imbalance(self):
+        # ratio of bid and ask orders
+        # use just orders in level 1
+        return 0.0
