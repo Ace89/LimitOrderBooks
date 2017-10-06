@@ -1,0 +1,8 @@
+list of required libraries
+numpy
+matplotlib
+pandas
+unittest
+enum
+sys
+scipy

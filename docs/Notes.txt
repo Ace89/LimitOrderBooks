@@ -1,0 +1,102 @@
+
+pandas.pydata.org/pandas-docs/stable
+
+Have a look through the pandas documentation
+Have a look at the source code on github, try to produce something
+similar to pandas for limit order books
+
+Pandas has two primary data structures: Series and DataFrame, they
+handle the majority of the use cases in finance, statistics. Pandas
+is built on top of NumPy and is intended to integrate well within a 
+scientific computing environment with many other 3rd party
+libraries.
+
+Features of pandas:
+-> Easy handling of missing data in floating point as well as
+non-floating point dats
+->Size mutability: columns can be inserted and deleted from
+DataFrame and higher dimensional objects
+-> Automatic and explicit data alignment: objects can be explicitly
+aligned to a set of labels, or the user can simply ignore the label
+and let Series, DataFrame automatically align the data for you in
+computations
+-> Flexible group by functionality to perform split-apply-combine
+operations on data sets, for both aggregating and transforming
+data.
+-> Intuitive merginf and joining data sets
+-> Flexible reshaping and pivoting of data sets
+-> Hierarchial labeling of axes
+-> Robust IO tools for loading data from flat files, Excel files,
+databases and saving/loading data from the ultrafast HDF5 format
+-> Time series specific functionality: date range generation and
+frequency conversion, moving window stats, moving window linear
+regressions, date shiftng and lagging etc
+
+For Data scientists, working with data is typically divided into
+multiple stages: munging and cleaning data, analyzing/modelling it
+then organising the results of the analysis into a form suitable
+for plotting or tabular display.
+
+Some additional notes:
+-> pandas is fast, many of the low level algorithmic bits have been
+extensively tweaked in Cython code.
+-> Pandas is a dependency of statsmodels, making it an important part
+of the stat ecosystem in Python
+-> pandas has been used extensively in production in financial
+applications
+
+
+Pandas Directory
+-- pandas
+	-- stats
+		-- __init__.py
+		-- api.py
+		-- moments.py
+	-- _libs
+	-- api
+	-- compat => compatibility
+	-- computation
+		-- _init__.py
+		-- expressions.py
+	-- core
+	-- errors
+		-- __init__.py
+	-- formats
+		-- __init__.py
+		-- style.py
+	-- io
+	-- plotting
+	-- tests
+	-- tools
+	-- tseries
+	-- types
+		-- __init__.py
+		-- common.py
+		-- concat.py
+	-- util
+	-- __init__.py
+	-- _version.py
+	-- conftest.py
+	-- json.py
+	-- lib.py
+	-- parser.py
+	-- testing.py
+	-- tslib.py
+
+Lobster data:
+	Orderbook:
+		
+		Columns: 
+			1.) Ask Price 1:	Level 1 Ask Price		(Best Ask)
+			2.) Ask Size 1:	Level 1 Ask Volume	(Best Ask Volume)
+			3.) Bid Price 1:	Level 1 Bid Price		(Best Bid)
+			4.) Bid Size 1:	Level 1 Bid Volume	(Best Bid Volume)
+			5.) Ask Price 2: 	Level 2 Ask Price		(2nd Best Ask)
+			...
+		Notes:
+		-----
+			- Levels:
+			The term level refers to occupied price levels
+	Message
+
+
