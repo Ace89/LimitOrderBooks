@@ -2,6 +2,14 @@
     Aim:
         Create an order book class to read in order book data
 
+    what is the difference between Orderbook.py and MessageData.py
+
+    Orderbook data is in columns
+    1) Ask Price 1      5) Ask Price 2
+    2) Ask Size 1       6) Ask Size 2
+    3) Bid Price 1      7) Bid Price 2
+    4) Bid Size 1       8) Bid Size 2
+
 """
 
 import pandas as pd

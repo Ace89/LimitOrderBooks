@@ -8,7 +8,7 @@
 
 import timeit
 
-import tests.TestScripts as test_scripts
+import sample.TestScripts as test_scripts
 
 __author__ = "Awais Talib"
 __project__ = "Limit Order Books"
@@ -21,6 +21,7 @@ start_time = timeit.default_timer()
 
 if __name__ == '__main__':
 
-    test_scripts.ar_fit_test()
+    #test_scripts.ar_fit_test()
+    test_scripts.message_data_test()
     elapsed_time = timeit.default_timer()-start_time
     print("\nTime take to run the script: " + str(elapsed_time))
