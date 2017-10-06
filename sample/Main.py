@@ -2,6 +2,8 @@
     Aim:
         Main method used to run program
 
+    Git guide:
+    http://rogerdudler.github.io/git-guide/
 """
 
 import timeit

@@ -1,7 +1,9 @@
 """
-Utility module
-contains functions that will come in handy
+    Aim:
+        Utility module
+        contains functions that will come in handy
 """
+
 from scipy.stats import pearsonr
 from scipy.optimize import fmin_slsqp
 import numpy as np

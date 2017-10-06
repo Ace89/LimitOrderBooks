@@ -13,7 +13,8 @@ __project__ = "Limit Order Books"
 __maintainer__ = "Awais Talib"
 __license__ = ""
 __version__ = "0.1"
-__all__ = ['unpack_orders', 'unpack_data']
+__all__ = ['read', 'summary', 'display', 'plot']
+
 
 class OrderBook:
 
@@ -54,4 +55,6 @@ class OrderBook:
         pass
 
     def plot(self):
+        plt.plot(self.buy_orders)
+        plt.show()
         pass
