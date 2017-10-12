@@ -99,4 +99,23 @@ Lobster data:
 			The term level refers to occupied price levels
 	Message
 
+Summary Stats
+-> NumLO : average daily number of standing limit orders
+-> AvgSZ : average size of limit orders
+-> NumALO : average daily number of limit orders placed inside the spread ("aggressive" limit orders)
+-> NumALO (%) : gives percentage of aggressive limit orders
+-> NumExe : number of limit orders (possibly partially) executed
+-> MedETim : median execution time of limit orders
+-> VWETim : volume weighted execution time
+-> NumCanc (%) : percentage of limit orders that are cancelled without (partial) execution
+-> MedCTim : median cancellation time
+-> NumACan (%) : cancellation rate of aggressive limit orders
+-> MedACTim : gives the median cancellation time of aggressive llimit orders
 
+Histograms
+-> Order sizes
+-> Execution sizes
+-> Cancellation time
+-> Execution time
+
+test to see if series is stationary

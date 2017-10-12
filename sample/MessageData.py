@@ -298,7 +298,7 @@ class MessageData:
         for i in range(1, len(buy_prices)):
             buy_rets.append(np.log(buy_prices[i]/buy_prices[i-1]))
 
-        for i in range(1,len(sell_prices)):
+        for i in range(1, len(sell_prices)):
             sell_rets.append(np.log(sell_prices[i]/sell_prices[i-1]))
 
         return np.std(buy_rets), np.std(sell_rets)
