@@ -91,6 +91,26 @@ def data_bucket_structure_test():
     return None
 
 
+def string_bucket_test():
+    file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
+    file_name = 'AMZN_2012-06-21_34200000_57600000_message_5.csv'
+
+    data = pd.read_csv(file_path + file_name)
+
+    startTime = 34200  # 09:30 exchange open time
+    endTime = 57600  # 16:00  exchange close time
+    intervals = 75  # 75 intervals imply a 5 minute window
+    levels = 3
+    dataBucket = TimeBuckets(data)
+
+    bucket_string = dataBucket.time_bucket(startTime, endTime, intervals, levels)
+
+    for i in range(1, len(bucket_string)):
+        print("Ask price: " + str(bucket_string[i].best_ask_price))
+
+    return None
+
+
 def message_data_test():
     file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
     file_name = 'AMZN_2012-06-21_34200000_57600000_message_5.csv'
