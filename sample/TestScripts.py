@@ -273,3 +273,15 @@ def file_format():
 
     """
     return None
+
+
+def test_mle():
+
+    # fit an AR(1) model to bucket data, then produce one-day forecasts
+    # assume data follows a normal distribution
+    # use Maximum likelihood estimation to fit mu and std deviation
+    # for forecast produce upper bound and lower bound using 95th and 5th percentiles from Gaussian dist
+
+    pass
+
+

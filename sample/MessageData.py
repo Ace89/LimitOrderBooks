@@ -256,6 +256,7 @@ class MessageData:
         self.sort_price_levels(ask_price)
 
         plt.plot(ask_volume, ask_price)
+        # still need to extend for bid volume
         plt.show()
         # last value in bid_levels is the best bid price
         # first value in offer levels is the best ask price
@@ -282,13 +283,13 @@ class MessageData:
 
     def price_volatility(self):
         """
-        In the message data column 2 contains order types, select types 4 and 5
-        4 is execution of visible limit orders
-        5 is execution of hidden limit orders
+            In the message data column 2 contains order types, select types 4 and 5
+            4 is execution of visible limit orders
+            5 is execution of hidden limit orders
 
-        Column 6 contains order direction
-        1 is buy order
-        -1 is sell order
+            Column 6 contains order direction
+            1 is buy order
+            -1 is sell order
         """
         buy_prices, sell_prices = self.get_buy_sell_prices()
 
