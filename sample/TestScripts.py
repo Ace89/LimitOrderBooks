@@ -17,6 +17,7 @@ from sample.StatisticalTests import linear_regression, sum_squared_errors, chow_
 from statsmodels.tsa.ar_model import AR
 from sklearn.metrics import mean_squared_error
 from scipy.stats import levy_stable
+from statsmodels.tsa.api import VAR, DynamicVAR
 
 
 def ar_fit_test():
@@ -103,11 +104,56 @@ def string_bucket_test():
     levels = 3
     dataBucket = TimeBuckets(data)
 
+    bid_prices = []
+    bid_freq = []
+    bid_vol1 = []
+    bid_vol2 = []
+    bid_vol3 = []
+    ask_prices = []
+    ask_freq = []
+    ask_vol1 = []
+    ask_vol2 = []
+    ask_vol3 = []
+
     bucket_string = dataBucket.time_bucket(startTime, endTime, intervals, levels)
 
     for i in range(1, len(bucket_string)):
-        print("Ask price: " + str(bucket_string[i].best_ask_price))
+        ask_prices.append(bucket_string[i].best_ask_price/10000)
+        ask_freq.append(bucket_string[i].ask_frequency)
+        ask_vol1.append(bucket_string[i].ask_volume_levels["level0"])
+        ask_vol2.append(bucket_string[i].ask_volume_levels["level1"])
+        ask_vol3.append(bucket_string[i].ask_volume_levels["level2"])
+        bid_prices.append(bucket_string[i].best_bid_price/10000)
+        bid_freq.append(bucket_string[i].bid_frequency)
+        bid_vol1.append(bucket_string[i].bid_volume_levels["level0"])
+        bid_vol2.append(bucket_string[i].bid_volume_levels["level1"])
+        bid_vol3.append(bucket_string[i].bid_volume_levels["level2"])
 
+    # create a dataframe containing the above series
+
+    data_index = pd.date_range('1/1/2011',periods=intervals,freq='5Min')
+
+    data_dict = {'ask_price' : pd.Series(ask_prices),
+                  'bid_price' : pd.Series(bid_prices),
+                  'ask_vol1' : pd.Series(ask_vol1),
+                  'ask_vol2' : pd.Series(ask_vol2),
+                  'ask_vol3' : pd.Series(ask_vol3),
+                  'bid_vol1' : pd.Series(bid_vol1),
+                  'bid_vol2' : pd.Series(bid_vol2),
+                  'bid_vol3' : pd.Series(bid_vol3),
+                  'ask_freq' : pd.Series(ask_freq),
+                  'bid_freq' : pd.Series(bid_freq)}
+
+    data_frame = pd.DataFrame(data_dict)
+    data_frame.index = data_index
+    #data = np.log(data_frame).diff().dropna()
+
+    model = VAR(data_frame)
+
+    # need to create a data frame
+
+    results = model.fit(1)
+    print(results.summary())
     return None
 
 

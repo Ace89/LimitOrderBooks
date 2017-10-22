@@ -6,3 +6,4 @@ unittest
 enum
 sys
 scipy
+statsmodels
