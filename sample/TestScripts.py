@@ -73,17 +73,12 @@ def data_bucket_structure_test():
     endTime = 57600  # 16:00  exchange close time
     intervals = 75  # 75 intervals imply a 5 minute window
 
-    dataBucket = TimeBuckets(data)
+    dataBucket = TimeBuckets(data, startTime,endTime,intervals)
     sell_order = -1
     buy_order = 1
-    [buy_buckets, buy_price, buy_size, buy_volume] = dataBucket.create_time_buckets(startTime,
-                                                                                    endTime,
-                                                                                    intervals,
-                                                                                    buy_order)
-    [sell_buckets, sell_price, sell_size, sell_volume] = dataBucket.create_time_buckets(startTime,
-                                                                                        endTime,
-                                                                                        intervals,
-                                                                                        sell_order)
+    [buy_buckets, buy_price, buy_size, buy_volume] = dataBucket.create_time_buckets(buy_order)
+
+    [sell_buckets, sell_price, sell_size, sell_volume] = dataBucket.create_time_buckets(sell_order)
 
     # buckets will have one additional value
     plt.plot(buy_buckets[1:], buy_volume, 'b-', sell_buckets[1:], sell_volume, 'r--')
@@ -97,12 +92,13 @@ def string_bucket_test():
     file_name = 'AMZN_2012-06-21_34200000_57600000_message_5.csv'
 
     data = pd.read_csv(file_path + file_name)
-
+    date = '1/1/2011'
     startTime = 34200  # 09:30 exchange open time
+    # startTime = (34200/3600)
     endTime = 57600  # 16:00  exchange close time
     intervals = 75  # 75 intervals imply a 5 minute window
     levels = 3
-    dataBucket = TimeBuckets(data)
+    dataBucket = TimeBuckets(data,startTime,endTime,intervals)
 
     bid_prices = []
     bid_freq = []
@@ -129,20 +125,20 @@ def string_bucket_test():
         bid_vol2.append(bucket_string[i].bid_volume_levels["level1"])
         bid_vol3.append(bucket_string[i].bid_volume_levels["level2"])
 
-    # create a dataframe containing the above series
+    # create a data frame containing the above series
 
-    data_index = pd.date_range('1/1/2011',periods=intervals,freq='5Min')
+    data_index = pd.date_range(date, periods=intervals, freq='5Min')
 
-    data_dict = {'ask_price' : pd.Series(ask_prices),
-                  'bid_price' : pd.Series(bid_prices),
-                  'ask_vol1' : pd.Series(ask_vol1),
-                  'ask_vol2' : pd.Series(ask_vol2),
-                  'ask_vol3' : pd.Series(ask_vol3),
-                  'bid_vol1' : pd.Series(bid_vol1),
-                  'bid_vol2' : pd.Series(bid_vol2),
-                  'bid_vol3' : pd.Series(bid_vol3),
-                  'ask_freq' : pd.Series(ask_freq),
-                  'bid_freq' : pd.Series(bid_freq)}
+    data_dict = {'ask_price': pd.Series(ask_prices),
+                 'bid_price': pd.Series(bid_prices),
+                 'ask_vol1': pd.Series(ask_vol1),
+                 'ask_vol2': pd.Series(ask_vol2),
+                 'ask_vol3': pd.Series(ask_vol3),
+                 'bid_vol1': pd.Series(bid_vol1),
+                 'bid_vol2': pd.Series(bid_vol2),
+                 'bid_vol3': pd.Series(bid_vol3),
+                 'ask_freq': pd.Series(ask_freq),
+                 'bid_freq': pd.Series(bid_freq)}
 
     data_frame = pd.DataFrame(data_dict)
     data_frame.index = data_index

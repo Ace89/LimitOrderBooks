@@ -119,3 +119,8 @@ Histograms
 -> Execution time
 
 test to see if series is stationary
+
+MessageData -> used to read in data and return time bucket (strictly)
+TimeBuckets -> Data structure for message data
+Description -> Use this to display summary and illustrate plots, This will take a time bucket object
+
