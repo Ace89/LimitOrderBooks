@@ -13,6 +13,9 @@
     http://parasec.net/transmission/order-book-visualisation/
     https://github.com/ab24v07/PyLOB
     https://github.com/danielktaylor/PyLimitBook
+    https://www.r-bloggers.com/artificial-intelligence-in-trading-k-means-clustering/
+    https://intelligenttradingtech.blogspot.co.uk/2010/06/quantitative-candlestick-pattern.html
+    https://ibug.doc.ic.ac.uk/media/uploads/documents/expectation_maximization-1.pdf
 
     Notes:
     when using from import * only names listed in __all__ will be imported
