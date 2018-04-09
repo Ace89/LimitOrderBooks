@@ -9,10 +9,15 @@ http://jakevdp.github.io/blog/2012/08/18/matplotlib-animation-tutorial/
 import pandas as pd
 import sys
 import numpy as np
+import datetime
 from numpy import exp
 import matplotlib.pyplot as plt
 from matplotlib import animation
-from sample.TimeBuckets import TimeBuckets
+from Enums.DataType import DataType
+from Enums.OrderType import OrderType
+from Enums.OrderDirection import OrderDirection
+from Time.TimeStructure import TimeStructure
+from Data.TimeSeriesRepository import TimeSeriesRepository
 from sample.MessageData import MessageData
 from sample.Utility import interpolate, auto_correlation, calib_garch, calib_arma, calib_auto_regressive
 from sample.StatisticalDistributions import GumbelDist
@@ -23,8 +28,12 @@ from scipy.stats import levy_stable
 from statsmodels.tsa.api import VAR, DynamicVAR
 from sample.OrderBookTimeSeries import OrderBookTimeSeries
 
+ticker = 'AMZN'
 file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
 file_name = 'AMZN_2012-06-21_34200000_57600000_message_5.csv'
+start_date = datetime.datetime(year=2012, month=6, day=21, hour=9, minute=30)
+end_date = datetime.datetime(year=2012, month=6, day=21, hour=16)
+date = datetime.datetime(year=2012, month=6, day=21)
 
 __all__ = ['test_create_time_buckets', 'ar_fit_test', 'data_bucket_structure_test',
            'string_bucket_test', 'message_data_test', 'auto_correl_test',
@@ -40,32 +49,37 @@ def test_create_time_buckets():
     """
     :return: average price, average volume and cumulative volume for buy and sell series
     """
-    data = pd.read_csv(file_path+file_name)
-    timeBuckets = TimeBuckets(data, 34200, 57600, 75)
-    avg_buckets = timeBuckets.create_order_book_average_buckets()
-    None
+    data_type = DataType.message
+    time_series_repository = TimeSeriesRepository(file_path)
+    time_structure = TimeStructure(start_date, end_date)
+    time_structure.create_time_structure(300)
+    order_type = OrderType.Visible_Execution
+    order_direction = OrderDirection.Buy
+    # populate the time_structure object with average values
+    time_series_repository.create_time_bucket_structure(time_structure, ticker, date, data_type.name,
+                                                        5, order_type, order_direction)
+    avg_buckets = time_structure.time_structure
 
-
+""" 
+Have not created the order book trees yet
 def test_order_book_trees():
-    """
-    :return:  order book tree object for the specified interval
-    """
+    
+    order book trees contain bid and offer levels instead of average prices
+    
     data = pd.read_csv(file_path+file_name)
     levels = 3
     timeBuckets = TimeBuckets(data, 34200, 57600, 75)
-    order_book_tree = timeBuckets.create_order_book_tree_buckets(levels)
+    order_book_tree = timeBuckets. (levels)
     None
-
+"""
 
 def init():
     line.set_data([], [])
     return line,
 
-
+"""
 def test_limit_order_tree_buckets(i):
-    """
-    :return: Test for limit order_tree-buckets
-    """
+    
     data = pd.read_csv(file_path + file_name)
     nbins = 50
     timeBuckets = TimeBuckets(data, 34200, 57600, 75)
@@ -105,8 +119,9 @@ def test_limit_order_tree_buckets(i):
 
     line.set_data([x_buy, x_sell], [y_buy, y_sell])
     return line,
+"""
 
-
+"""
 def test_order_book_time_series():
     data = pd.read_csv(file_path+file_name)
     time_bucket = TimeBuckets(data, 34200, 57600, 75)
@@ -120,9 +135,7 @@ def test_order_book_time_series():
     order_series_volume = order_book_time_series.get_order_book_time_series('buy', 'volume', 3, 0)
     order_series_level1 = order_book_time_series.get_order_book_time_series('buy', 'volume', 3, 1)
     order_series_level2 = order_book_time_series.get_order_book_time_series('buy', 'volume', 3, 2)
-
-    None
-
+"""
 
 def ar_fit_test():
     message_data = MessageData(file_path+file_name)
@@ -163,7 +176,7 @@ def ar_fit_test():
 
     return None
 
-
+"""
 def data_bucket_structure_test():
 
     data = pd.read_csv(file_path + file_name)
@@ -184,8 +197,9 @@ def data_bucket_structure_test():
     plt.legend(['buy', 'sell'])
     plt.show()
     return None
+"""
 
-
+"""
 def string_bucket_test():
 
     data = pd.read_csv(file_path + file_name)
@@ -248,7 +262,7 @@ def string_bucket_test():
     results = model.fit(1)
     print(results.summary())
     return None
-
+"""
 
 def message_data_test():
     ord_file = 'AMZN_2012-06-21_34200000_57600000_orderbook_5.csv'
@@ -269,7 +283,7 @@ def message_data_test():
     print("Unique orders: " + str(len(message_data.orders)))
     print("Size of order dict: " + str(sys.getsizeof(message_data.orders)))
 
-
+"""
 def auto_correl_test():
     data = pd.read_csv(file_path + file_name)
 
@@ -301,7 +315,7 @@ def auto_correl_test():
     plt.plot(sell_auto_correl)
     plt.legend(['1day - sell correl'])
     plt.show()
-
+"""
 
 def gumbel_dist(execPrices):
     priceSeries = pd.Series(execPrices)
@@ -335,7 +349,7 @@ def gumbel_dist(execPrices):
     plt.show()
     return None
 
-
+"""
 def garch_test():
     data = pd.read_csv(file_path + file_name)
 
@@ -366,7 +380,7 @@ def garch_test():
     for val in estimates:
         print(str(val))
     return None
-
+"""
 
 def chow_test():
     n_sims = 100
@@ -440,6 +454,9 @@ if __name__ == '__main__':
     #test_order_book_trees()
     #test_create_time_buckets()
     #test_order_book_time_series()
-    anim = animation.FuncAnimation(fig, test_limit_order_tree_buckets, init_func=init, frames=75,
-                                   interval=75, blit=True)
-    plt.show()
+    #anim = animation.FuncAnimation(fig, test_limit_order_tree_buckets, init_func=init, frames=75,
+    #                               interval=75, blit=True)
+    #plt.show()
+    test_create_time_buckets()
+
+

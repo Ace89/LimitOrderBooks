@@ -208,9 +208,14 @@ class MHP:
     def get_rate(self, ct, d):
         # return rate at time ct in dimension d
         seq = np.array(self.data)
-        if not np.all(ct > seq[:, 0]): seq = seq[seq[:, 0] < ct]
-        return self.mu[d] + \
-               np.sum([self.alpha[d, int(j)] * self.omega * np.exp(-self.omega * (ct - t)) for t, j in seq])
+        if not np.all(ct > seq[:, 0]):
+            seq = seq[seq[:, 0] < ct]
+
+        if len(seq) != 0:
+            print('Not Empty')
+
+        #return self.mu[d] + np.sum([self.alpha[d, int(j)] * self.omega * np.exp(-self.omega * (ct - t)) for t, j in seq])
+        return 0.1 + np.sum([0.5 * self.omega * np.exp(-self.omega * (ct - t)) for t in seq])
 
     def plot_rates(self, horizon=-1):
         # there is certainly a way to modify this function to plot when dim != 3,
@@ -275,8 +280,24 @@ class MHP:
         plt.show()
 
 if __name__ == '__main__':
-    horizon = 100
+    m = np.array([0.2, 0.0, 0.0])
+    a = np.array([[0.1, 0.0, 0.0],
+                  [0.9, 0.0, 0.0],
+                  [0.0, 0.9, 0.0]])
+    w = 3.1
+
+    horizon = 60
+
+    #P = MHP(mu=m, alpha=a, omega=w)
+    #P.generate_seq(60)
+    #P.plot_events()
+    #P.plot_rates(60)
+
     mhp = MHP()
     mhp.generate_seq(horizon)
-    mhp.plot_rates()
-    #qmhp.plot_events()
+    xs = np.linspace(0, horizon, (horizon/100.)*1000)
+    rates = [mhp.get_rate(ct, 0) for ct in xs]
+    plt.plot(xs, rates)
+    plt.show()
+
+

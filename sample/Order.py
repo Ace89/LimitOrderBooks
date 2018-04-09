@@ -14,6 +14,10 @@
 """
 
 from enum import Enum
+from Enums.ExecutionType import ExecutionType
+from Enums.OrderType import OrderType
+from Enums.OrderDirection import OrderDirection
+from Enums.Visibility import Visibility
 
 __author__ = "Awais Talib"
 __project__ = "Limit Order Books"
@@ -21,30 +25,6 @@ __maintainer__ = "Awais Talib"
 __license__ = ""
 __version__ = "0.1"
 __all__ = ['unpack_orders', 'unpack_data']
-
-
-class ExecutionType(Enum):
-    Filled = 1
-    Cancelled = 2
-
-
-class OrderType(Enum):
-    Submission = 1
-    Cancellation = 2
-    Deletion = 3
-    Execution_Visible = 4
-    Execution_Hidden = 5
-    Trading_Halt = 7
-
-
-class Direction(Enum):
-    Bid = 1
-    Offer = -1
-
-
-class Visibility(Enum):
-    Visible = 1
-    Hidden = 2
 
 
 class Order:

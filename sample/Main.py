@@ -24,7 +24,7 @@
 
 import timeit
 
-import sample.TestScripts as test_scripts
+import Examples.ExampleScripts as test_scripts
 
 __author__ = "Awais Talib"
 __project__ = "Limit Order Books"

@@ -7,3 +7,4 @@ enum
 sys
 scipy
 statsmodels
+sklearn

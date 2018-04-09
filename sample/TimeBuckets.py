@@ -26,6 +26,7 @@ up to millisecond precision
 """
 import numpy as np
 import pandas as pd
+from sample.OrderBookTree import OrderBookTree
 from sample.Bucket import Bucket
 from sample.Order import Order, OrderType, Direction, Visibility
 
@@ -33,6 +34,12 @@ from sample.Order import Order, OrderType, Direction, Visibility
 class TimeBuckets:  # sequence of time buckets
 
     def __init__(self, data_frame, start_time, end_time, buckets):
+        """
+        :param data_frame:
+        :param start_time:
+        :param end_time:
+        :param buckets:
+        """
         if type(data_frame) == pd.DataFrame:
             print('yee ha!')
 
@@ -56,7 +63,12 @@ class TimeBuckets:  # sequence of time buckets
 
     @staticmethod
     def count_if(matrix, col_num, value):
-        
+        """
+        :param matrix:
+        :param col_num:
+        :param value:
+        :return:
+        """
         count = 0
         
         for i in range(0, len(matrix)):
@@ -200,6 +212,11 @@ class TimeBuckets:  # sequence of time buckets
 
     @staticmethod
     def create_bins_freq(price, nbins):
+        """
+        :param price:
+        :param nbins:
+        :return:
+        """
         min_price = np.min(price)
         max_price = np.max(price)
         price_bins = list()
@@ -230,7 +247,10 @@ class TimeBuckets:  # sequence of time buckets
         return price_dict
 
     def create_order_book_tree_buckets(self, num_of_levels=3):
-
+        """
+        :param num_of_levels:
+        :return:
+        """
         intervals = (self.end_time - self.start_time) / self.buckets
         bucket_string = []
 
@@ -242,6 +262,9 @@ class TimeBuckets:  # sequence of time buckets
         return bucket_string
 
     def create_order_book_average_buckets(self):
+        """
+        :return: a list of buy and sell buckets containing average values
+        """
         # shift 'intervals' into the constructor
         intervals = (self.end_time - self.start_time) / self.buckets
         sell_bucket_string = []
@@ -256,6 +279,10 @@ class TimeBuckets:  # sequence of time buckets
         return [buy_bucket_string, sell_bucket_string]
 
     def create_limit_order_tree_buckets(self, nbins = 50):
+        """
+        :param nbins: number of bins to create distribution
+        :return:
+        """
         intervals = (self.end_time - self.start_time) / self.buckets
         sell_bucket_dict = []
         buy_bucket_dict = []
@@ -269,17 +296,3 @@ class TimeBuckets:  # sequence of time buckets
 
         return [buy_bucket_dict, sell_bucket_dict]
 
-
-class OrderBookTree:
-
-    @staticmethod
-    def __doc__():
-        return "contains number of levels of interest in the order book, dictionaries for prices " \
-               "and list of volumes for that price"
-
-    def __init__(self, start_time, end_time, buy_levels, sell_levels, levels=3):
-        self.start_time = start_time
-        self.end_time = end_time
-        self.levels = levels
-        self.buy_levels = buy_levels
-        self.sell_levels = sell_levels

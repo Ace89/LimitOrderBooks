@@ -48,7 +48,7 @@ class PriceLevel:
         else:
             return False
 
-    def set_next_price(self,bid_price):
+    def set_next_price(self, bid_price):
         self.next_level = bid_price
 
     def get_next_price(self):
