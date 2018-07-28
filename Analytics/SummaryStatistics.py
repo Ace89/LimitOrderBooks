@@ -6,21 +6,7 @@ from Time.TimeStructure import TimeStructure
 class SummaryStatistics:
 
     def __init__(self, timeStructure):
-        self.time_structure = timeStructure.time_structure
-        self.time_series = self.create_array()
-
-    def create_array(self):
-        """
-        :return: a list of price/volume values
-        """
-        # list of buckets
-        time_structure = self.time_structure
-        temp_prices = list()
-
-        for bucket in time_structure:
-            temp_prices.append(bucket.price)
-
-        return temp_prices
+        self.time_series = timeStructure.create_time_series()
 
     def calculate_mean(self):
         """
@@ -41,6 +27,7 @@ class SummaryStatistics:
         """
         return np.percentile(self.time_series, percentile)
 
+    # remove this method as it is moved into a class of its own
     @staticmethod
     def calculate_book_imbalance(time_structure_buy, time_structure_sell):
         size = len(time_structure_buy)
@@ -54,6 +41,7 @@ class SummaryStatistics:
 
         return imbalance
 
+    # remove this method as it is moved into a class of its own
     @staticmethod
     def remove_outliers(time_structure):
 

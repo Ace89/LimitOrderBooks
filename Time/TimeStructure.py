@@ -4,6 +4,9 @@ from Time.Bucket import Bucket
 
 """
 Create a time structure of buckets over a specified interval
+
+This is essentially the index for the order book frame
+
 """
 
 
@@ -24,6 +27,7 @@ class TimeStructure:
         self.end_time = end_time
         self.time_structure = list()
         self.intervals = None
+        self.time_series = None
 
     def create_time_structure(self, intervals):
         """
@@ -39,6 +43,24 @@ class TimeStructure:
             bucket = Bucket(temp, temp+interval)
             self.time_structure.append(bucket)
             temp += interval
+
+    def create_time_series(self):
+        """
+        :return: time series of prices in buckets
+        """
+        if self.time_series is None:
+            if self.time_structure is None:
+                raise ValueError('time structure has not been initialized')
+
+            self.time_series = [bucket.price for bucket in self.time_structure]
+
+        return self.time_series
+
+    def create_volume_series(self):
+        return [bucket.volume for bucket in self.time_structure]
+
+    def create_time_index(self):
+        return [(bucket.start_time, bucket.end_time) for bucket in self.time_structure]
 
 if __name__ == '__main__':
     _start_time = datetime.datetime(2018, 1, 30, hour=9, minute=30)

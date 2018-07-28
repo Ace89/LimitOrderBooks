@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 class MHP:
-    def __init__(self, alpha=[[0.5]], mu=[0.1], omega=1.0):
+    def __init__(self, alpha=[[0.6]], mu=[1.2], omega=0.8):
         '''params should be of form:
         alpha: numpy.array((u,u)), mu: numpy.array((,u)), omega: float'''
 
@@ -44,6 +44,8 @@ class MHP:
         # starts with just the base rate
         lastrates = self.mu.copy()
 
+        # lambda_star = mu
+
         decIstar = False
         while True:
             tj, uj = self.data[-1][0], int(self.data[-1][1])
@@ -61,8 +63,7 @@ class MHP:
             s += np.random.exponential(scale=1. / Istar)
 
             # calc rates at time s (use trick to take advantage of rates at last event)
-            rates = self.mu + np.exp(-self.omega * (s - tj)) * \
-                              (self.alpha[:, uj].flatten() * self.omega + lastrates - self.mu)
+            rates = self.mu + np.exp(-self.omega * (s - tj)) * (self.alpha[:, uj].flatten() * self.omega + lastrates - self.mu)
 
             # attribution/rejection test
             # handle attribution and thinning in one step as weighted random sample
@@ -215,7 +216,9 @@ class MHP:
             print('Not Empty')
 
         #return self.mu[d] + np.sum([self.alpha[d, int(j)] * self.omega * np.exp(-self.omega * (ct - t)) for t, j in seq])
-        return 0.1 + np.sum([0.5 * self.omega * np.exp(-self.omega * (ct - t)) for t in seq])
+        #return 0.1 + np.sum([0.5 * self.omega * np.exp(-self.omega * (ct - t)) for t in seq])
+        # I think there is a bug in the lines above, I think the correct answer is below
+        return 1.2 + np.sum([0.6 * np.exp(-self.omega * (ct - t)) for t in seq])
 
     def plot_rates(self, horizon=-1):
         # there is certainly a way to modify this function to plot when dim != 3,
