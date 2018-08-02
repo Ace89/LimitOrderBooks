@@ -2,55 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a77b3-9cc5-41a0-8838-dbeb87d3625e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/GarchModel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/GaussianDistribution.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/LimitOrderBook.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/LinearModel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/Order.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/OrderBookFrame.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/OrderBookImbalance.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/OrderQueue.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/StandardDeviation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/StatisticalTests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/StudentTDistribution.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/SummaryStatistics.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Analytics/Volatility.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/.~lock.AMZN_2012-06-21_34200000_57600000_message_5_subset.csv#" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/DataCleaning.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/TimeSeriesRepository.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/^GSPC.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/test_timeSeriesRepository.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Time/Bucket.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Time/TimeStructure.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/Bucket.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/BucketStats.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/Description.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/Main.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/MessageData.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/MixDistributionTest.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/OrderBookTimeSeries.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/OrderFactory.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/Orderbook.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/PriceLevel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/StatisticalDistributions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/StatisticalTests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/TimeBucket.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/TimeBucketStructure.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/TimeBuckets.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/Utility.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sample/VAR_Test.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Data/Message.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/Message.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Data/MessageDataReader.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Data/Queue.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/Queue.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Time/__init__.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sample/LimitOrderBook.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sample/LimitOrderBookUpdater.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/sample/Order.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/Order.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ProjectTests/test_Order.py" afterPath="$PROJECT_DIR$/.ProjectTests/test_Order.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_garchModel.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_gaussianDistribution.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_linearModel.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_standardDeviation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_studentTDistribution.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.testAnalytics/test_summaryStatistics.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.testAnalytics/test_standardDeviation.py" afterPath="$PROJECT_DIR$/.testAnalytics/test_standardDeviation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.testAnalytics/test_summaryStatistics.py" afterPath="$PROJECT_DIR$/.testAnalytics/test_summaryStatistics.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,16 +22,6 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Queue.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/Queue.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="LimitOrderBook.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -93,23 +42,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LimitOrderBookUpdater.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="LimitOrderBookUpdater.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="72" />
+                <state relative-caret-position="135">
+                  <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
                   <folding>
-                    <element signature="e#1#67#0" expanded="true" />
+                    <element signature="e#1#49#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LimitOrderBookExample.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="LimitOrderBookExample.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+                <state relative-caret-position="435">
+                  <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -119,17 +68,17 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MessageDataReader.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MessageDataReader.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="29" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LimitOrderBook.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="LimitOrderBook.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="345">
@@ -163,7 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Analytics/test_standardDeviation.py" />
         <option value="$PROJECT_DIR$/Interfaces/IVolatility.py" />
         <option value="$PROJECT_DIR$/Interfaces/IStatisticalDistribution.py" />
         <option value="$PROJECT_DIR$/Analytics/StudentTDistribution.py" />
@@ -214,6 +162,7 @@
         <option value="$PROJECT_DIR$/sample/LimitOrderBookUpdater.py" />
         <option value="$PROJECT_DIR$/sample/Order.py" />
         <option value="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" />
+        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
       </list>
     </option>
   </component>
@@ -271,11 +220,6 @@
               <item name="LimitOrderBooks" type="462c0819:PsiDirectoryNode" />
               <item name="Analytics" type="462c0819:PsiDirectoryNode" />
               <item name="LimitOrderBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LimitOrderBooks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LimitOrderBooks" type="462c0819:PsiDirectoryNode" />
-              <item name="Examples" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -459,9 +403,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1365" y="0" width="1922" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.114583336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.114583336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36661467" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2781186" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -512,16 +455,6 @@
           <line>37</line>
           <option name="timeStamp" value="193" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py</url>
-          <line>78</line>
-          <option name="timeStamp" value="219" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="222" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -535,13 +468,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Analytics/GaussianDistribution.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.testAnalytics/test_studentTDistribution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -725,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/Orderbook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -845,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analytics/Order.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -901,21 +811,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
+    <entry file="file://$PROJECT_DIR$/docs/Notes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="72" />
-          <folding>
-            <element signature="e#1#67#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-720">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="42" lean-forward="false" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state relative-caret-position="435">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="e#1#49#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
