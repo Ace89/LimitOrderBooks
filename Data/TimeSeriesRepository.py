@@ -117,5 +117,5 @@ if __name__ == '__main__':
     timeStructure = TimeStructure(start_date, end_date)
     timeStructure.create_time_structure(intervals=300)
     timeSeriesRepository.create_time_bucket_structure(timeStructure, ticker, date, DataType.message, 5,
-                                                      OrderType.Visible_Execution, OrderDirection.Buy)
+                                                      OrderType.VisibleExecution, OrderDirection.Buy)
     print('Series created')

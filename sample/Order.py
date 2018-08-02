@@ -13,42 +13,44 @@
         Execution type and Visibility are redundant at the moment
 """
 
-from enum import Enum
-from Enums.ExecutionType import ExecutionType
 from Enums.OrderType import OrderType
-from Enums.OrderDirection import OrderDirection
-from Enums.Visibility import Visibility
 
 __author__ = "Awais Talib"
 __project__ = "Limit Order Books"
 __maintainer__ = "Awais Talib"
 __license__ = ""
 __version__ = "0.1"
-__all__ = ['unpack_orders', 'unpack_data']
 
 
 class Order:
 
-    def __init__(self, submission_time, direction, price, volume, visibility, order_type):
+    def __init__(self, submission_time, order_type, order_id, size, price, direction):
+
+        #if type(order_type) is not type(OrderType):
+          #  raise Exception('order type should be of type Enums.OrderType')
+
         self.submission_time = submission_time
-        self.execution_time = []
-        self.execution = []
-        self.direction = direction
-        self.price = price
-        self.volume = volume
-        self.visibility = visibility
         self.order_type = order_type
+        self.order_id = order_id
+        self.size = size
+        self.price = price
+        self.direction = direction
+        self.remaining_size = size
 
     def __hash__(self):
-        return str(self.submission_time) + str(self.volume) + str(self.price)
+        return self.submission_time + self.size + self.price + self.direction
 
-    def cancel_order(self, time, volume):
-        self.execution_time.append(time)
-        self.execution.append(volume)
-        self.execution.append(ExecutionType.Cancelled)
+    def __lt__(self, order):
+        if self.price != order.price:
+            return self.price < order.price
 
-    def execute_order(self, time, volume):
-        # what if order is executed multiple times i.e. order of 3000 executed in 1000 lots
-        self.execution_time.append(time)
-        self.execution.append(volume)
-        self.execution.append(ExecutionType.Filled)
+        return self.submission_time > order.submission_time
+
+    def __gt__(self, order):
+        if self.price != order.price:
+            return self.price > order.price
+
+        return self.submission_time < order.submission_time
+
+    def __eq__(self, order):
+        return self.order_id == order.order_id

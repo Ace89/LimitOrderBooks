@@ -49,7 +49,7 @@ class LimitOrderBook:
                     else:
                         offer_order_queue.orders[order.price] = [bid_order_queue.orders[order.price]] + \
                                                                 [(order.time, order.volume, order.id)]
-            elif order.type == OrderType.Cancellation or order.type == OrderType.Visible_Execution:
+            elif order.type == OrderType.Cancellation or order.type == OrderType.VisibleExecution:
                 # go through the queues and partially cancel the order
                 # order must be in the queues
                 if order.direction == OrderDirection.Buy:
@@ -79,7 +79,7 @@ class LimitOrderBook:
                     for orders in order_queue:
                         if orders[2] == order.id:
                             order_queue.remove(orders)
-            elif order.type == OrderType.Hidden_Execution:
+            elif order.type == OrderType.HiddenExecution:
                 # adjust the queue to reflect a hidden order execution
                 pass
             else:
@@ -112,7 +112,7 @@ class LimitOrderBook:
         cumulative_volume = 0.0
 
         for message in message_data.index:
-            if message_data['Type'][message] == OrderType.Visible_Execution.value or message_data['Type'][message] == OrderType.Hidden_Execution.value:
+            if message_data['Type'][message] == OrderType.VisibleExecution.value or message_data['Type'][message] == OrderType.HiddenExecution.value:
                 volume_weighted_price += message_data['Price'][message] * message_data['Size'][message]
                 cumulative_volume += message_data['Size'][message]
 
@@ -196,7 +196,7 @@ class LimitOrderBook:
             for idx in message_data.index:
                 if message_data['Price'][idx] == price and message_data['Direction'][idx] == 1 and message_data['Type'][idx] == OrderType.Submission.value:
                     size += message_data['Size'][idx]
-                if message_data['Price'][idx] == price and message_data['Direction'][idx] == 1 and (message_data['Type'][idx] == OrderType.Visible_Execution.value or message_data['Type'][idx] == OrderType.Hidden_Execution.value):
+                if message_data['Price'][idx] == price and message_data['Direction'][idx] == 1 and (message_data['Type'][idx] == OrderType.VisibleExecution.value or message_data['Type'][idx] == OrderType.HiddenExecution.value):
                     size -= message_data['Size'][idx]
             bid_volume[cont] = size
             cont += 1
@@ -208,7 +208,7 @@ class LimitOrderBook:
             for idx in message_data.index:
                 if message_data['Price'][idx] == price and message_data['Direction'][idx] == -1:
                     size += message_data['Size'][idx]
-                if message_data['Price'][idx] == price and message_data['Direction'][idx] == -1 and (message_data['Type'][idx] == OrderType.Visible_Execution.value or message_data['Type'][idx] == OrderType.Hidden_Execution.value):
+                if message_data['Price'][idx] == price and message_data['Direction'][idx] == -1 and (message_data['Type'][idx] == OrderType.VisibleExecution.value or message_data['Type'][idx] == OrderType.HiddenExecution.value):
                     size -= message_data['Size'][idx]
             offer_volume[cont] = size
             cont += 1

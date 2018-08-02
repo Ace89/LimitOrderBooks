@@ -46,7 +46,7 @@ class TestTimeSeriesRepository(TestCase):
         time_series_repository = TimeSeriesRepository(file_path)
         time_stamp = 5
         classifier = DataType.message
-        order_type = OrderType.Visible_Execution
+        order_type = OrderType.VisibleExecution
         order_direction = OrderDirection.Buy
         data = time_series_repository.get_data(ticker, date, classifier, time_stamp).as_matrix()
         data_flag = True
@@ -101,6 +101,6 @@ class TestTimeSeriesRepository(TestCase):
 
         # act
         timeSeriesRepository.create_time_bucket_structure(timeStructure, ticker, date, DataType.message, 5,
-                                                          OrderType.Visible_Execution, OrderDirection.Buy)
+                                                          OrderType.VisibleExecution, OrderDirection.Buy)
         # assert
         self.assertTrue(timeStructure.time_structure is not None)

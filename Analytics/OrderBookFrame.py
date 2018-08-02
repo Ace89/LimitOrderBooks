@@ -61,10 +61,10 @@ class OrderBookFrame():
         self.BuyTimeStructure = TimeStructure(self.start_date, self.end_date)
         self.BuyTimeStructure.create_time_structure(intervals=300)
         self.ticker = 'AMZN'
-        self.__create_time_bucket_structure(self.BuyTimeStructure, OrderType.Visible_Execution, OrderDirection.Buy)
+        self.__create_time_bucket_structure(self.BuyTimeStructure, OrderType.VisibleExecution, OrderDirection.Buy)
         self.SellTimeStructure = TimeStructure(self.start_date, self.end_date)
         self.SellTimeStructure.create_time_structure(intervals=300)
-        self.__create_time_bucket_structure(self.SellTimeStructure, OrderType.Visible_Execution, OrderDirection.Sell)
+        self.__create_time_bucket_structure(self.SellTimeStructure, OrderType.VisibleExecution, OrderDirection.Sell)
         self.__initialize()
         # Time should be in the index
 

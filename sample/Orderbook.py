@@ -45,7 +45,7 @@ class OrderBook:
         rows, cols = np.size(order_file)
         output = np.matrix(number_of_orders. cols)
 
-        for i in range(0,number_of_orders):
+        for i in range(0, number_of_orders):
             for j in range(0, cols):
                 output[i, j] = order_file[i, j]
 

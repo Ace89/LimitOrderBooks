@@ -53,7 +53,7 @@ def test_create_time_buckets():
     time_series_repository = TimeSeriesRepository(file_path)
     time_structure = TimeStructure(start_date, end_date)
     time_structure.create_time_structure(300)
-    order_type = OrderType.Visible_Execution
+    order_type = OrderType.VisibleExecution
     order_direction = OrderDirection.Buy
     # populate the time_structure object with average values
     time_series_repository.create_time_bucket_structure(time_structure, ticker, date, data_type.name,
