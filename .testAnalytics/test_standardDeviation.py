@@ -23,11 +23,11 @@ class TestStandardDeviation(TestCase):
         timeStructure = TimeStructure(start_date, end_date)
         timeStructure.create_time_structure(intervals=300)
         timeSeriesRepository.create_time_bucket_structure(timeStructure, ticker, date, DataType.message, 5,
-                                                          OrderType.Visible_Execution, OrderDirection.Buy)
+                                                          OrderType.VisibleExecution, OrderDirection.Buy)
         time_structure_sell = TimeStructure(start_date, end_date)
         time_structure_sell.create_time_structure(intervals=300)
         timeSeriesRepository.create_time_bucket_structure(time_structure_sell, ticker, date, DataType.message, 5,
-                                                            OrderType.Visible_Execution, OrderDirection.Sell)
+                                                          OrderType.VisibleExecution, OrderDirection.Sell)
 
         book_imbalance = []
         for i in range(0, len(time_structure_sell.time_structure)):

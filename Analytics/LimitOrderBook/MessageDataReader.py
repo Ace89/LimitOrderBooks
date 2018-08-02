@@ -1,5 +1,5 @@
 
-from Data.Message import Message
+from Analytics.LimitOrderBook.Message import Message
 
 
 class MessageDataReader:

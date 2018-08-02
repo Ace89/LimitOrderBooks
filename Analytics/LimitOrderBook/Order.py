@@ -13,8 +13,6 @@
         Execution type and Visibility are redundant at the moment
 """
 
-from Enums.OrderType import OrderType
-
 __author__ = "Awais Talib"
 __project__ = "Limit Order Books"
 __maintainer__ = "Awais Talib"

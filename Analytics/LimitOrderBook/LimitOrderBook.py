@@ -1,5 +1,5 @@
 
-from Data.Queue import Queue
+from Analytics.LimitOrderBook.Queue import Queue
 
 
 class LimitOrderBook:

@@ -27,7 +27,7 @@ class TestSummaryStatistics(TestCase):
 
     def test_create_array(self):
         # arrange
-        time_structure = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Buy)
+        time_structure = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Buy)
         summary_statistics = SummaryStatistics(time_structure)
         time_series = summary_statistics.create_array()
 
@@ -43,7 +43,7 @@ class TestSummaryStatistics(TestCase):
 
     def test_calculate_mean(self):
         # arrange
-        time_structure = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Buy)
+        time_structure = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Buy)
         summary_statistics = SummaryStatistics(time_structure)
         time_series = summary_statistics.create_array()
 
@@ -60,7 +60,7 @@ class TestSummaryStatistics(TestCase):
 
     def test_calculate_median(self):
         # arrange
-        time_structure = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Buy)
+        time_structure = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Buy)
         summary_statistics = SummaryStatistics(time_structure)
         time_series = summary_statistics.create_array()
 
@@ -72,7 +72,7 @@ class TestSummaryStatistics(TestCase):
 
     def test_calculate_percentile(self):
         # arrange
-        time_structure = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Buy)
+        time_structure = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Buy)
         summary_statistics = SummaryStatistics(time_structure)
         time_series = summary_statistics.create_array()
         pctile = 10
@@ -85,8 +85,8 @@ class TestSummaryStatistics(TestCase):
 
     def test_calculate_imbalance(self):
         # arrange
-        time_structure_buy = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Buy)
-        time_structure_sell = self.create_time_structure(OrderType.Visible_Execution, OrderDirection.Sell)
+        time_structure_buy = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Buy)
+        time_structure_sell = self.create_time_structure(OrderType.VisibleExecution, OrderDirection.Sell)
         summary_statistics = SummaryStatistics(time_structure_buy)
         expected_result = 96.9142684586
         tol = 10e-3

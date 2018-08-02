@@ -1,10 +1,9 @@
 
-from sample.LimitOrderBook import LimitOrderBook
-from Data.MessageDataReader import MessageDataReader
-
+from Analytics.LimitOrderBook.LimitOrderBook import LimitOrderBook
+from Analytics.LimitOrderBook.MessageDataReader import MessageDataReader
+from Analytics.LimitOrderBook.Order import Order
 from Enums.OrderDirection import OrderDirection
 from Enums.OrderType import OrderType
-from sample.Order import Order
 
 
 class LimitOrderBookUpdater:
@@ -13,8 +12,6 @@ class LimitOrderBookUpdater:
         self.books = None
 
     def update_order_book(self, limit_order_book, messages):
-        #best_bid = list()
-        #best_ask = list()
         books = list()
         for message in messages:
             order = Order(message.time, message.type, message.order_id,
@@ -30,22 +27,21 @@ class LimitOrderBookUpdater:
                 else:
                     limit_order_book.ask_queue.dequeue(order)
             books.append((limit_order_book.bid_queue.queue, limit_order_book.ask_queue.queue))
-            #if len(limit_order_book.bid_queue.queue) > 0:
-            #    best_bid.append(limit_order_book.bid_queue.queue[-1].price)
-            #if len(limit_order_book.ask_queue.queue) > 0:
-            #    best_ask.append(limit_order_book.ask_queue.queue[0].price)
+
         self.books = books
 
-    def create_time_series(self):
+    def create_time_series(self, start_time=34200, time_interval=5):
         bid_price = list()
         bid_volume = list()
         ask_price = list()
-        ask_volume =  list()
+        ask_volume = list()
         for book in self.books:
-            bid_price.append(book[0][-1].price)
-            bid_volume.append(book[0][-1].size)
-            ask_price.append(book[1][0].price)
-            ask_volume.append(book[1][0].size)
+            if book[0][-1].submission_time > start_time:
+                bid_price.append(book[0][-1].price)
+                bid_volume.append(book[0][-1].size)
+                ask_price.append(book[1][0].price)
+                ask_volume.append(book[1][0].size)
+                start_time += time_interval
 
         return bid_price, bid_volume, ask_price, ask_volume
 
@@ -70,11 +66,11 @@ if __name__ == '__main__':
     bid = np.asarray(bid_price)
     ask = np.asarray(ask_price)
 
-    plt.subplot(4, 1, 1)
+    plt.subplot(2, 1, 1)
     plt.plot(bid/10000)
     plt.title('Bid')
 
-    plt.subplot(4, 1, 3)
+    plt.subplot(2, 1, 2)
     plt.plot(ask/10000)
     plt.title('Ask')
 
