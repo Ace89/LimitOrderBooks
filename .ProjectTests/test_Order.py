@@ -3,7 +3,7 @@
 """
 
 from sample.OrderFactory import OrderFactory
-from sample.Order import Order, Direction, Visibility, ExecutionType, OrderType
+from Analytics.LimitOrderBook.Order import Order, Direction, Visibility, ExecutionType, OrderType
 
 import unittest
 
