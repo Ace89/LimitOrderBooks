@@ -28,18 +28,23 @@ class LimitOrderBookUpdater:
 
         self.books = books
 
-    def create_time_series(self, start_time=34200, time_interval=5):
-        bid_price = list()
-        bid_volume = list()
-        ask_price = list()
-        ask_volume = list()
-        for book in self.books:
-            if book[0][-1].submission_time > start_time:
-                bid_price.append(book[0][-1].price)
-                bid_volume.append(book[0][-1].size)
-                ask_price.append(book[1][0].price)
-                ask_volume.append(book[1][0].size)
-                start_time += time_interval
+    def create_time_series(self, start_time=34200, time_interval=5, series_type='price'):
+        bid_output = list()
+        ask_output = list()
 
-        return bid_price, bid_volume, ask_price, ask_volume
+        if series_type == 'price':
+            for book in self.books:
+                if book[0][-1].submission_time > start_time:
+                    bid_output.append(book[0][-1].price)
+                    ask_output.append(book[1][0].price)
+                    start_time += time_interval
+        elif series_type == 'size':
+            for book in self.books:
+                if book[0][-1].submission_time > start_time:
+                    bid_output.append(book[0][-1].size)
+                    ask_output.append(book[1][0].size)
+                    start_time += time_interval
+        else:
+            raise NotImplementedError('series type not recognised')
+        return bid_output, ask_output
 

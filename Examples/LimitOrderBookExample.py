@@ -20,7 +20,7 @@ if __name__ == '__main__':
     msgDataReader.read_messages(file_path+file_name)
     lob_updater.update_order_book(lob, msgDataReader.messages)
 
-    bid_price, bid_volume, ask_price, ask_volume = lob_updater.create_time_series()
+    bid_price, ask_price = lob_updater.create_time_series()
 
     bid = np.asarray(bid_price)
     ask = np.asarray(ask_price)
