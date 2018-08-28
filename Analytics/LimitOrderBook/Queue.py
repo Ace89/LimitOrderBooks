@@ -1,6 +1,7 @@
 
 # https://www.pythoncentral.io/use-queue-beginners-guide/
 
+
 class Queue:
 
     def __init__(self):

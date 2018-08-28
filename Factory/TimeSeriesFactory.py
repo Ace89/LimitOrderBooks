@@ -2,6 +2,7 @@
 from Enums.TimeSeriesTypes import TimeSeriesTypes
 
 import numpy as np
+import pandas as pd
 
 
 class TimeSeriesFactory:
@@ -20,12 +21,14 @@ class TimeSeriesFactory:
         if time_series_types == TimeSeriesTypes.price:
             bid_output = list()
             ask_output = list()
+            index = list()
             for book in self.books:
                 if book[0][-1].submission_time > start_time:
                     bid_output.append(book[0][-1].price)
                     ask_output.append(book[1][0].price)
+                    index.append(start_time)
                     start_time += time_interval
-            return bid_output, ask_output
+            return pd.Series(bid_output, index=index), pd.Series(ask_output, index=index)
         elif time_series_types == TimeSeriesTypes.size:
             bid_output = list()
             ask_output = list()
@@ -54,10 +57,12 @@ class TimeSeriesFactory:
             return mid_price
         elif time_series_types == TimeSeriesTypes.imbalance:
             imbalance_output = list()
+            index = list()
             for book in self.books:
                 if book[0][-1].submission_time > start_time:
                     imbalance_output.append(book[1][0].price - book[0][-1].price)
+                    index.append(start_time)
                     start_time += time_interval
-            return imbalance_output
+            return pd.Series(imbalance_output, index=index)
         else:
             raise NotImplementedError(self.err_msg)

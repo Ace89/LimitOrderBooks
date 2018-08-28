@@ -14,6 +14,7 @@ class LimitOrderBook:
     def get_best_ask(self):
         return self.ask_queue.get_top()
 
+    # no usages found for method below
     @classmethod
     def from_queues(cls, bid_queue, ask_queue):
         new_instance = cls()

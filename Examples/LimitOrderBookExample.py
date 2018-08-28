@@ -9,6 +9,7 @@ from Analytics.LimitOrderBook.OrderBookDataReader import OrderBookDataReader
 from Analytics.LimitOrderBook.LimitOrderBookUpdater import LimitOrderBookUpdater
 from Analytics.ExtractPrices import ExtractPrices
 from Analytics.SummaryStatistics import SummaryStatistics
+from Factory.TimeSeriesFactory import TimeSeriesFactory
 from Enums.OrderType import OrderType
 from Enums.TimeSeriesTypes import TimeSeriesTypes
 
@@ -19,14 +20,20 @@ file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
 def order_book_updated_example():
     lob = LimitOrderBook()
     msg_data_reader = MessageDataReader()
-
-    start = time.time()
+    start_time = 34200
+    time_interval = 5
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
     lob_updater.update_order_book(lob)
 
-    bid_price, ask_price = lob_updater.create_time_series()
+    time_series_factory = TimeSeriesFactory(lob_updater.books)
+
+    bid_price, ask_price = time_series_factory.create_time_series(TimeSeriesTypes.price,
+                                                                  start_time,
+                                                                  time_interval)
+
+    #bid_price, ask_price = lob_updater.create_time_series()
 
     num_limit_orders = lob_updater.number_of_limit_order(OrderType.Submission, 34200, 57600)
 
@@ -34,8 +41,8 @@ def order_book_updated_example():
 
     print('number of limit orders: {0}'.format(num_limit_orders))
 
-    bid = np.asarray(bid_price)
-    ask = np.asarray(ask_price)
+    bid = np.asarray(bid_price.tolist())
+    ask = np.asarray(ask_price.tolist())
 
     plt.subplot(3, 1, 1)
     plt.plot(bid/10000)
@@ -50,8 +57,6 @@ def order_book_updated_example():
     plt.title('Imbalance')
 
     plt.show()
-
-    end = time.time()
 
 
 def order_book_imbalance_example():
@@ -153,8 +158,8 @@ def summary_statistics():
 
 
 if __name__ == '__main__':
-    #order_book_updated_example()
+    order_book_updated_example()
     #limit_order_frequency_example()
     #limit_order_efficient_price_example()
     #svm_example()
-    summary_statistics()
+    #summary_statistics()
