@@ -10,6 +10,8 @@ from Analytics.LimitOrderBook.LimitOrderBookUpdater import LimitOrderBookUpdater
 from Analytics.ExtractPrices import ExtractPrices
 from Analytics.SummaryStatistics import SummaryStatistics
 from Factory.TimeSeriesFactory import TimeSeriesFactory
+from Analytics.StudentTDistribution import StudentTDistribution
+from Analytics.LimitOrderBookPlot import LimitOrderBookPlot
 from Enums.OrderType import OrderType
 from Enums.TimeSeriesTypes import TimeSeriesTypes
 
@@ -156,6 +158,40 @@ def summary_statistics():
     summary_stats_result = summary_stats.generate_summary()
     print('results created')
 
+
+def visualize_example():
+    lob = LimitOrderBook()
+    msg_data_reader = MessageDataReader()
+    start_time = 34200
+    time_interval = 5
+
+    msg_data_reader.read_data(file_path + file_name)
+    lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
+    lob_updater.update_order_book(lob)
+
+    time_series_factory = TimeSeriesFactory(lob_updater.books)
+
+    lob_plot = LimitOrderBookPlot(time_series_factory, start_time, time_interval)
+
+
+def fit_distribution_example():
+    lob = LimitOrderBook()
+    msg_data_reader = MessageDataReader()
+    start_time = 34200
+    time_interval = 5
+
+    msg_data_reader.read_data(file_path + file_name)
+    lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
+    lob_updater.update_order_book(lob)
+
+    time_series_factory = TimeSeriesFactory(lob_updater.books)
+
+    bid_price, ask_price = time_series_factory.create_time_series(TimeSeriesTypes.price,
+                                                                  start_time,
+                                                                  time_interval)
+
+    student_distribution = StudentTDistribution()
+    fitted_parameters = student_distribution.fit_data(bid_price.tolist())
 
 if __name__ == '__main__':
     order_book_updated_example()
