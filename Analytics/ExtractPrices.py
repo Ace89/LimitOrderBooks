@@ -1,5 +1,6 @@
 
 from Analytics.Features import Features
+from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
 
 
 class ExtractPrices(Features):
@@ -12,6 +13,9 @@ class ExtractPrices(Features):
         :param data: data frame
         :return: time series
         """
+
+        # return a limit order book series
+
         levels = len(data.columns) / 4
         ask_price = data['AskPrice1'].tolist()
         ask_size = data['AskSize1'].tolist()

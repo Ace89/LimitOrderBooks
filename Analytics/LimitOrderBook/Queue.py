@@ -17,13 +17,9 @@ class Queue:
         larger_orders = list(filter(lambda x: x > item, self.queue))
 
         self.queue = smaller_orders + [item] + larger_orders
-
         return
 
     def dequeue(self, item):
-
-        #if item not in self.queue:
-        #    raise Exception('Item does not exit in this list')
 
         for order in self.queue:
             if order == item:

@@ -3,7 +3,7 @@ from Analytics.IDistribution import IDistribution
 from scipy.stats import t
 
 
-class StudentTDistribution(IDistribution, t):
+class StudentTDistribution(IDistribution):
 
     def __init__(self):
         None

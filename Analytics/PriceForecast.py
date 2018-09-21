@@ -2,7 +2,8 @@
 from Analytics.LimitOrderBook.LimitOrderBook import LimitOrderBook
 from Analytics.LimitOrderBook.LimitOrderBookUpdater import LimitOrderBookUpdater
 from Analytics.LimitOrderBook.MessageDataReader import MessageDataReader
-from Enums.OrderType import OrderType
+from Factory.TimeSeriesFactory import TimeSeriesFactory
+from Enums.TimeSeriesTypes import TimeSeriesTypes
 
 import numpy as np
 
@@ -13,15 +14,15 @@ file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
 
 class PriceForecast:
 
-    def __init__(self, limit_order_book_updater):
-        self.limit_order_book_updater = limit_order_book_updater
+    def __init__(self, time_series_factory):
+        self.time_series_factory = time_series_factory
         self.prob_dict = {}
         self.freq_dict = {}
         self.liquidity_parameter = None
 
     def calculate_size_deciles(self):
-        bid_size, ask_size = self.limit_order_book_updater.create_time_series(start_time=34201, time_interval=1, series_type='full-size')
-        mid_price = self.limit_order_book_updater.create_time_series(start_time=34201, time_interval=1, series_type='mid-price')
+        bid_size, ask_size = self.time_series_factory.create_time_series(TimeSeriesTypes.full_size, 34201, 1)
+        mid_price = self.time_series_factory.create_time_series(TimeSeriesTypes.mid_price,34201,1)
         deciles = np.arange(0, 100, 10)
         bid_deciles = np.percentile(bid_size, deciles)
         ask_deciles = np.percentile(ask_size, deciles)
@@ -153,8 +154,8 @@ if __name__ == '__main__':
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
     lob_updater.update_order_book(lob)
-
-    price_forecast = PriceForecast(lob_updater)
+    time_series_factory = TimeSeriesFactory(lob_updater.books)
+    price_forecast = PriceForecast(time_series_factory)
 
     h = 0.15
     prob, freq = price_forecast.calculate_size_deciles()

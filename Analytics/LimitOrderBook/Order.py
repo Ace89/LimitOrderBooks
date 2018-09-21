@@ -23,10 +23,6 @@ __version__ = "0.1"
 class Order:
 
     def __init__(self, submission_time, order_type, order_id, size, price, direction):
-
-        #if type(order_type) is not type(OrderType):
-          #  raise Exception('order type should be of type Enums.OrderType')
-
         self.submission_time = submission_time
         self.order_type = order_type
         self.order_id = order_id

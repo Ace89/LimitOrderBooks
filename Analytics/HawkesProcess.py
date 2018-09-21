@@ -1,6 +1,7 @@
 
 import numpy as np
 
+from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
 
 class HawkesProcess:
 
@@ -21,12 +22,9 @@ class HawkesProcess:
 
         return output
 
-    def simulate(self):
-        None
-
-    def plot_exp_func(self, events, alpha=0.6, beta=0.8, l=1.2):
+    def simulate_process(self, events, alpha=0.6, beta=0.8, l=1.2):
         import matplotlib.pyplot as plt
-
+        # return a limit order book series
         max_value = np.ceil(events[-1])
         # I want to increase in increments of 0.01
         x = np.linspace(0, max_value, 100*max_value)
@@ -46,9 +44,9 @@ class HawkesProcess:
         plt.plot(x, y)
 
         plt.show()
-
+        return None
 
 if __name__ == '__main__':
     hawkes = HawkesProcess(1.2)
     events = hawkes.generate_events(100)
-    hawkes.plot_exp_func(events)
+    hawkes.simulate_process(events)
