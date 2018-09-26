@@ -1,5 +1,6 @@
 
 from Enums.TimeSeriesTypes import TimeSeriesTypes
+from Enums.TimeSeriesSource import TimeSeriesSource
 from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
 import numpy as np
 import pandas as pd

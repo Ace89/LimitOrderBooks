@@ -87,6 +87,19 @@ def order_book_updated_example():
     plt.show()
 
 
+def order_book_data_example():
+    lob = LimitOrderBook()
+    msg_data_reader = OrderBookDataReader(file_path+file_name)
+
+    start_time = 34200
+    time_interval = 5
+
+    lob_updater = LimitOrderBookUpdater(None)
+    order_data = msg_data_reader.read_data(file_path+order_file)
+    lob_updater.add_order_book_data(order_data)
+    lob_updater.update_order_book_from_order_data(lob)
+    print(len(lob_updater.books))
+
 def create_time_series_example():
     #lob = LimitOrderBook()
     #msg_data_reader = MessageDataReader()
@@ -322,4 +335,5 @@ if __name__ == '__main__':
     #limit_order_efficient_price_example()
     #svm_example()
     #summary_statistics()
-    visualize_example()
+    #visualize_example()
+    order_book_data_example()

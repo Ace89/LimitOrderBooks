@@ -9,15 +9,16 @@ class LimitOrderBookUpdater:
 
     def __init__(self, messages):
         self.messages = messages
-        self.order_book_data = None
+        #self.order_book_data = None
         self.books = None
 
     def add_order_book_data(self, order_book_data):
         self.order_book_data = order_book_data
 
+    # update order book from message data
     def update_order_book(self, limit_order_book):
         books = list()
-        levels = 5
+        #levels = 5
         for message in self.messages:
             order = Order(message.time, message.type, message.order_id,
                           message.size, message.price, message.direction)
@@ -70,6 +71,36 @@ class LimitOrderBookUpdater:
                     limit_order_book.bid_queue.dequeue(order)
 
         None
+
+    def update_order_book_from_order_data(self, limit_order_book):
+        bid_tickers = [('BidPrice1', 'BidSize1'),
+                    ('BidPrice2', 'BidSize2'),
+                    ('BidPrice3', 'BidSize3'),
+                    ('BidPrice4', 'BidSize4'),
+                    ('BidPrice5', 'BidSize5')]
+        ask_tickers = [('AskPrice1', 'AskSize1'),
+                    ('AskPrice2', 'AskSize2'),
+                    ('AskPrice3', 'AskSize3'),
+                    ('AskPrice4', 'AskSize4'),
+                    ('AskPrice5', 'AskSize5')]
+        books = list()
+        times= self.order_book_data.index
+        for idx in range(0,len(self.order_book_data)):
+
+            for ticker in bid_tickers:
+                limit_order_book.bid_queue.queue.append((self.order_book_data.iloc[idx][ticker[0]],
+                                                         self.order_book_data.iloc[idx][ticker[1]]))
+
+            for ticker in ask_tickers:
+                limit_order_book.ask_queue.queue.append((self.order_book_data.iloc[idx][ticker[0]],
+                                                         self.order_book_data.iloc[idx][ticker[1]]))
+
+            data_reader_result = DataReaderResult(times[idx],
+                                                  limit_order_book.bid_queue,
+                                                  limit_order_book.ask_queue)
+            books.append(data_reader_result)
+
+        self.books = books
 
     def number_of_limit_order(self, order_type=OrderType.Submission, start_time=34200, end_time=57600):
         """

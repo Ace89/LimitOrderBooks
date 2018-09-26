@@ -1,11 +1,11 @@
 
-from Analytics.LimitOrderBook.DataReader import DataReader
+from Analytics.LimitOrderBook.IDataReader import IDataReader
 from Analytics.LimitOrderBook.Message import Message
 from Enums.OrderType import OrderType
 from Enums.OrderDirection import OrderDirection
 
 
-class MessageDataReader(DataReader):
+class MessageDataReader(IDataReader):
 
     def __init__(self):
         self.messages = list()

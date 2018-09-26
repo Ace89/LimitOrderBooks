@@ -11,6 +11,6 @@ setup(
     author='Awais Talib',
     author_email='Awais.Talib@kellogg.ox.ac.uk',
     license='None Required',
-    packages=['Numpy, Pandas'],
+    packages=['numpy, pandas'],
     zip_safe=False
 )

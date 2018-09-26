@@ -2,7 +2,7 @@
 from abc import ABC, abstractmethod
 
 
-class DataReader(ABC):
+class IDataReader(ABC):
     @abstractmethod
     def read_data(self, message_file):
-        pass
+        raise NotImplementedError('This method is not implemented')
