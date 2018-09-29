@@ -1,6 +1,7 @@
 
-from Analytics.IDistribution import IDistribution
 from scipy.stats import t
+
+from Interfaces.IDistribution import IDistribution
 
 
 class StudentTDistribution(IDistribution):

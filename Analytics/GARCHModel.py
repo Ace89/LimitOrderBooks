@@ -1,7 +1,8 @@
 
-from Analytics.INonLinearModel import INonLinearModel
-from scipy.optimize import fmin_slsqp
 import numpy as np
+from scipy.optimize import fmin_slsqp
+
+from Interfaces.INonLinearModel import INonLinearModel
 
 
 class GARCHModel(INonLinearModel):

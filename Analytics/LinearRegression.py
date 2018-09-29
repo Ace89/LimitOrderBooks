@@ -1,5 +1,3 @@
-
-from Analytics.ILinearModel import ILinearModel
 from sklearn import linear_model
 
 

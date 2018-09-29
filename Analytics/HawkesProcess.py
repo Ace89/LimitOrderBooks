@@ -30,7 +30,6 @@ class HawkesProcess:
         x = np.linspace(0, max_value, 100*max_value)
 
         y = list()
-        event = 0
         event_time = 0
         for time in x:
             if np.round(time, 2) in events:
@@ -44,9 +43,9 @@ class HawkesProcess:
         plt.plot(x, y)
 
         plt.show()
-        return None
+        return y
 
 if __name__ == '__main__':
     hawkes = HawkesProcess(1.2)
     events = hawkes.generate_events(100)
-    hawkes.simulate_process(events)
+    output = hawkes.simulate_process(events)

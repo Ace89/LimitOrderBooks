@@ -5,5 +5,5 @@ from abc import ABC, abstractmethod
 class ILinearModel(ABC):
 
     @abstractmethod
-    def fit_data(self, time_series_x, time_series_y):
-        raise NotImplementedError
+    def fit_data(self, x, y):
+        raise NotImplementedError('This method has not been implemented')

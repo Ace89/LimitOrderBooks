@@ -1,6 +1,7 @@
 
-from Analytics.ILinearModel import ILinearModel
 from sklearn import linear_model
+
+from Interfaces.ILinearModel import ILinearModel
 
 
 class LogisticRegression(ILinearModel, linear_model.LogisticRegression):
