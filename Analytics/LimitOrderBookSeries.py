@@ -1,5 +1,6 @@
 
 import pandas as pd
+import numpy as np
 
 
 class LimitOrderBookSeries(pd.Series):
@@ -12,5 +13,4 @@ class LimitOrderBookSeries(pd.Series):
         None
 
     def calculate_volatility(self):
-        import numpy as np
         return np.std(self.series.tolist())

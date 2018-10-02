@@ -10,7 +10,7 @@ class SummaryStatistics:
 
     def __init__(self, message_data):
         """
-        :param message_data: message data
+        :param message_data: message data, list of orders
         """
         self.message_data = message_data
 

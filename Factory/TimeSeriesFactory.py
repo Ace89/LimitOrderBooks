@@ -169,3 +169,68 @@ class TimeSeriesFactory:
         else:
             raise NotImplementedError(self.err_msg)
 
+    def create_time_series_from_order_book_series(self, order_book_series,
+                                                  time_series_type,
+                                                  start_time,
+                                                  time_interval):
+
+        if time_series_type == TimeSeriesTypes.price:
+            bid_output = list()
+            ask_output = list()
+            index = list()
+            for order_book in order_book_series:
+                if order_book.time >= start_time:
+                    bid_output.append(order_book.bid_queue.queue[-1].price)
+                    ask_output.append(order_book.ask_queue.queue[0].price)
+                    index.append(start_time)
+                    start_time += time_interval
+            bid_series = LimitOrderBookSeries(bid_output, index)
+            ask_series = LimitOrderBookSeries(ask_output, index)
+            return bid_series, ask_series
+        elif time_series_type == TimeSeriesTypes.size:
+            bid_output = list()
+            ask_output = list()
+            index = list()
+            for order_book in order_book_series:
+                if order_book >= start_time:
+                    bid_output.append(order_book.bid_queue.queue[-1].size)
+                    ask_output.append(order_book.ask_queue.queue[0].size)
+                    index.append(start_time)
+                    start_time += time_interval
+            bid_series = LimitOrderBookSeries(bid_output, index)
+            ask_series = LimitOrderBookSeries(ask_output, index)
+            return bid_series, ask_series
+        elif time_series_type == TimeSeriesTypes.full_size:
+            bid_output = list()
+            ask_output = list()
+            index = list()
+            for order_book in  order_book_series:
+                if order_book >= start_time:
+                    bid_size = [order.size for order in order_book.bid_queue.queue]
+                    ask_size = [order.size for order in order_book.ask_queue.queue]
+                    bid_output.append(sum(bid_size))
+                    ask_output.append(sum(ask_size))
+                    index.append(start_time)
+                    start_time += time_interval
+            bid_series = LimitOrderBookSeries(bid_output, index)
+            ask_series = LimitOrderBookSeries(ask_output, index)
+            return bid_series, ask_series
+        elif time_series_type == TimeSeriesTypes.mid_price:
+            bid, ask = self.create_time_series_from_order_book_series(order_book_series,
+                                                                      TimeSeriesTypes.price,
+                                                                      start_time,
+                                                                      time_interval)
+            output = [0.5*(bid.iloc[i]+ask.iloc[i]) for i in range(0, len(bid))]
+            out_series = LimitOrderBookSeries(output, bid.index)
+            return out_series
+        elif time_series_type == TimeSeriesTypes.imbalance:
+            bid, ask = self.create_time_series_from_order_book_series(order_book_series,
+                                                                      TimeSeriesTypes.price,
+                                                                      start_time,
+                                                                      time_interval)
+            output = [bid.iloc[i] - ask.iloc[i] for i in range(0, len(bid))]
+            out_series = LimitOrderBookSeries(output, bid.index)
+            return out_series
+        else:
+            raise NotImplementedError(self.err_msg)
+        return None

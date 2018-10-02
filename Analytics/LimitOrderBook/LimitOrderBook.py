@@ -1,6 +1,5 @@
 
 from Analytics.LimitOrderBook.Queue import Queue
-#from Analytics.LimitOrderBook.NestedQueue import NestedQueue
 
 
 class LimitOrderBook:
@@ -8,8 +7,6 @@ class LimitOrderBook:
     def __init__(self):
         self.bid_queue = Queue()
         self.ask_queue = Queue()
-        #self.bid_queue = NestedQueue()
-        #self.ask_queue = NestedQueue()
 
     def get_bid_price_size(self):
 

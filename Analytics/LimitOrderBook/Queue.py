@@ -14,7 +14,13 @@ class Queue:
             return
 
         smaller_orders = list(filter(lambda x: x < item, self.queue))
-        larger_orders = list(filter(lambda x: x > item, self.queue))
+        # no need to calculate large orders, take orders in queue not in smaller orders as larger orders
+        #larger_orders = list(filter(lambda x: x > item, self.queue))
+        larger_orders = []
+
+        for order in self.queue:
+            if order not in smaller_orders:
+                larger_orders.append(order)
 
         self.queue = smaller_orders + [item] + larger_orders
         return

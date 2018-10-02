@@ -1,32 +1,49 @@
 
 from Analytics.LimitOrderBook.IDataReader import IDataReader
-from Analytics.LimitOrderBook.DataReaderResult import DataReaderResult
+from Analytics.LimitOrderBook.MessageDataReader import MessageDataReader
 
 
 class OrderBookDataReader(IDataReader):
 
-    def __init__(self):
+    def __init__(self, levels):
         self.messages = None
-        self.levels = None
+        self.levels = levels
+        self.headers = self.__generate_column_headers()
 
     def read_data(self, order_message_file, message_file):
         """
+        :param order_message_file: file containing order book data
         :param message_file: file containing data
         :return: data frame containing prices and sizes
         """
         import pandas as pd
-        msg_data = pd.read_csv(message_file)
+
+        msg_data_reader = MessageDataReader()
+        msg_data = msg_data_reader.read_data_frame(message_file)
+
         data = pd.read_csv(order_message_file)
-        data.index = msg_data['Time']
-        self.levels = len(data.columns) / 4
-
+        data.columns = self.headers
+        data['Time'] = msg_data['Time']
         self.messages = data
+        return self.messages
 
+    def __generate_column_headers(self):
+        names = ['AskPrice', 'AskSize', 'BidPrice', 'BidSize']
+        idx = list()
+        cont = 1
+        for i in range(1, self.levels*len(names)+1):
+            idx.append(cont)
+            if i % len(names) == 0:
+                cont += 1
+
+        headers = ['{0}{1}'.format(x, y) for x, y in zip(names*self.levels, idx)]
+        return headers
 
 if __name__ == '__main__':
     file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
     file_name = 'AMZN_2012-06-21_34200000_57600000_orderbook_5_subset.csv'
     msg_file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
-    data_reader = OrderBookDataReader()
+    levels = 5
+    data_reader = OrderBookDataReader(levels)
     data = data_reader.read_data(file_path+file_name, file_path+msg_file_name)
     print('loaded successfully')

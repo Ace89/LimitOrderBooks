@@ -153,7 +153,7 @@ if __name__ == '__main__':
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.update_order_book(lob)
+    lob_updater.generate_order_book_series_from_message_data(lob)
     time_series_factory = TimeSeriesFactory(lob_updater.books)
     price_forecast = PriceForecast(time_series_factory)
 

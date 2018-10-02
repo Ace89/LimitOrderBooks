@@ -43,7 +43,7 @@ def reconstruct_order_book(file, data_type):
 
     data_reader.read_data(file)
     lob_updater = LimitOrderBookUpdater(data_reader.messages)
-    lob_updater.update_order_book(limit_order_book)
+    lob_updater.generate_order_book_series_from_message_data(limit_order_book)
 
     return lob_updater.books
 
@@ -195,6 +195,10 @@ def hawkes_process_simulation(intensity, events, alpha, beta, l):
 
 
 def mid_price_forecast(file):
+    """
+    :param file: data file
+    :return:
+    """
     # Using the SVM
     data_reader = OrderBookDataReader()
     data = data_reader.read_data(file)
@@ -206,7 +210,7 @@ def mid_price_forecast(file):
     for i in range(991, 999):
         prediction = clf.predict(x[i])
         output.append(prediction[0])
-        
+
     return output
 
 
@@ -225,6 +229,13 @@ def price_increase_probability(file, data_type):
 
 
 def efficient_price(file, data_type, start_time, end_time):
+    """
+    :param file: data file
+    :param data_type: data type
+    :param start_time: start time
+    :param end_time: end time
+    :return: Time series of efficient price
+    """
     # time series efficient price
     limit_order_book = LimitOrderBook()
 
@@ -237,11 +248,12 @@ def efficient_price(file, data_type, start_time, end_time):
 
     data_reader.read_data(file)
     lob_updater = LimitOrderBookUpdater(data_reader.messages)
-    lob_updater.update_order_book(limit_order_book)
+    lob_updater.generate_order_book_series_from_message_data(limit_order_book)
 
     time_series_factory = TimeSeriesFactory(lob_updater.books)
     bid, ask = time_series_factory.create_time_series(TimeSeriesTypes.price, start_time=start_time, time_interval=5)
-    k=150
+    k = 150
+    # what is this k
     eff_price = EfficientPrice(lob_updater)
     theta = eff_price.calculate_theta(k, start_time, end_time)
     price = eff_price.efficient_price(theta, bid)

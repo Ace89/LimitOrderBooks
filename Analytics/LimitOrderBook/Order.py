@@ -38,12 +38,12 @@ class Order:
         if self.price != order.price:
             return self.price < order.price
 
-        return self.submission_time > order.submission_time
+        return self.submission_time <= order.submission_time
 
     def __gt__(self, order):
         if self.price != order.price:
             return self.price > order.price
-
+        # currently this is redundant
         return self.submission_time < order.submission_time
 
     def __eq__(self, order):
