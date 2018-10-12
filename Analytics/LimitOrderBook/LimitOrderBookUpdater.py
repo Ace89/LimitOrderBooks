@@ -13,7 +13,7 @@ class LimitOrderBookUpdater:
         self.messages = messages
         self.order_book_data = order_book_data
 
-    def generate_order_book_series_from_message_data(self, limit_order_book):
+    def generate_books_from_message_data(self, limit_order_book):
         books = list()
         time_series_idx = list()
 
@@ -84,7 +84,7 @@ class LimitOrderBookUpdater:
 
         return None
 
-    def generate_order_book_series_from_order_book_data(self, limit_order_book):
+    def generate_books_from_order_book_data(self, limit_order_book):
 
         bid_price_columns = list(filter(lambda x: 'BidPrice' in x, self.order_book_data.columns))
         bid_size_columns = list(filter(lambda x: 'BidSize' in x, self.order_book_data.columns))

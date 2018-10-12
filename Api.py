@@ -20,6 +20,17 @@ from Factory.TimeSeriesFactory import TimeSeriesFactory
 
 from Enums.TimeSeriesTypes import TimeSeriesTypes
 
+from api.ReconstructOrderBookHandler import ReconstructOrderBookHandler
+from api.GenerateTimeSeriesHandler import GenerateTimeSeriesRequestHandler
+from api.SummaryStatisticsHandler import SummaryStatisticsHandler
+from api.FitDistributionHandler import FitDistributionHandler
+from api.StatisticalTestsHandler import StatisticalTestsHandler
+from api.FitLinearModelHandler import FitLinearModelHandler
+from api.FitNonLinearModel import FitNonLinearModel
+from api.ProcessSimulationHandler import HawkesProcessSimulation
+from api.PriceForecastHandler import PriceForecastHandler
+from api.PriceProbabilityHandler import PriceProbabilityHandler
+from api.EfficientPriceHandler import EfficientPriceHandler
 
 file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
 file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
@@ -32,20 +43,10 @@ def reconstruct_order_book(file, data_type):
     :param data_type: Message data or Order data
     :return: A collection of books
     """
-    limit_order_book = LimitOrderBook()
+    order_book_handler = ReconstructOrderBookHandler()
+    order_book_series = order_book_handler.handle_request(file, data_type)
 
-    if data_type == 'message':
-        data_reader = MessageDataReader()
-    elif data_type == 'order':
-        data_reader = OrderBookDataReader()
-    else:
-        raise NotImplementedError('Data type not recognised')
-
-    data_reader.read_data(file)
-    lob_updater = LimitOrderBookUpdater(data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(limit_order_book)
-
-    return lob_updater.books
+    return order_book_series
 
 
 def generate_time_series(time_series_type, limit_order_books, start_time, interval):
@@ -56,9 +57,8 @@ def generate_time_series(time_series_type, limit_order_books, start_time, interv
     :param interval: Interval between books
     :return: Time series
     """
-    time_series = TimeSeriesTypes(time_series_type)
-    time_series_factory = TimeSeriesFactory(limit_order_books)
-    output = time_series_factory.create_time_series(time_series, start_time, interval)
+    time_series_handler = GenerateTimeSeriesRequestHandler()
+    output = time_series_handler.handle_request(time_series_type, limit_order_books, start_time, interval)
     return output
 
 
@@ -69,16 +69,10 @@ def calculate_summary_statistics(file, data_type):
     :return: Summary
     """
 
-    if data_type == 'message':
-        data_reader = MessageDataReader()
-    else:
-        raise NotImplementedError('Data type not recognised')
+    summary_stats_handler = SummaryStatisticsHandler()
+    summary = summary_stats_handler.handle_request(file, data_type)
 
-    data_reader.read_data(file)
-
-    summary = SummaryStatistics(data_reader.messages)
-
-    return summary.generate_summary()
+    return summary
 
 
 def display_plot(file, data_type):
@@ -111,16 +105,9 @@ def fit_statistical_distribution(time_series, distribution):
     :param distribution: distribution
     :return:
     """
-
-    if isinstance(time_series, LimitOrderBookSeries) is False:
-        raise NotImplementedError('Time series type not recognised')
-
-    if distribution == 'students-t':
-        dist = StudentTDistribution()
-    else:
-        raise NotImplementedError('This distribution is not supported')
-
-    return dist.fit_data(time_series)
+    handler = FitDistributionHandler()
+    fitted_params = handler.handle_request(time_series, distribution)
+    return fitted_params
 
 
 def statistical_tests(time_series, test):
@@ -130,19 +117,9 @@ def statistical_tests(time_series, test):
     :return:
     """
 
-    if isinstance(time_series, LimitOrderBookSeries) is False:
-        raise NotImplementedError('Time series type not recognised')
-
-    stat_test = StatisticalTests()
-
-    if test == 'chow':
-        return stat_test.chow_test()
-    elif test == 'hurst':
-        return stat_test.hurst_exponent(time_series)
-    else:
-        raise NotImplementedError('Test not recognised')
-
-    return None
+    handler = StatisticalTestsHandler()
+    stat_test = handler.handle_request(time_series, test)
+    return stat_test
 
 
 def fit_linear_model(x, y, model_name):
@@ -152,16 +129,9 @@ def fit_linear_model(x, y, model_name):
     :return:
     """
 
-    if model_name == 'linear':
-        model = LinearRegression()
-        return model.fit_data(x, y)
-    elif model_name == 'logistic':
-        model = LogisticRegression()
-        return model.fit_data(x, y)
-    else:
-        raise NotImplementedError('Model not recognised')
-
-    return None
+    handler = FitLinearModelHandler()
+    output = handler.handle_request(model_name, x, y)
+    return output
 
 
 def fit_non_linear_model(time_series, model):
@@ -170,14 +140,9 @@ def fit_non_linear_model(time_series, model):
     :param model: model
     :return:
     """
-    if isinstance(time_series, LimitOrderBookSeries) is False:
-        return NotImplementedError('time series type not recognised')
-
-    if model is not 'garch':
-        raise NotImplementedError('Model not recognised')
-
-    non_lin_model = GARCHModel()
-    return non_lin_model.fit_data(time_series)
+    handle = FitNonLinearModel()
+    output = handle.handle_request(model, time_series)
+    return output
 
 
 def hawkes_process_simulation(intensity, events, alpha, beta, l):
@@ -189,8 +154,8 @@ def hawkes_process_simulation(intensity, events, alpha, beta, l):
     :param l: starting point
     :return: simulated time series
     """
-    hawkes = HawkesProcess(intensity)
-    time_series = hawkes.simulate_process(events,alpha, beta, l)
+    hawkes = HawkesProcessSimulation()
+    time_series = hawkes.handle_request(intensity, events,alpha, beta, l)
     return time_series
 
 
@@ -199,18 +164,9 @@ def mid_price_forecast(file):
     :param file: data file
     :return:
     """
-    # Using the SVM
-    data_reader = OrderBookDataReader()
-    data = data_reader.read_data(file)
-    extract_prices = ExtractPrices()
-    x, y = extract_prices.extract_data(data)
-    clf = svm.SVC()
-    clf.fit(x[0:990], y[0:990])
-    output = []
-    for i in range(991, 999):
-        prediction = clf.predict(x[i])
-        output.append(prediction[0])
 
+    handle = PriceForecastHandler()
+    output = handle.handle_request(file)
     return output
 
 
@@ -220,12 +176,9 @@ def price_increase_probability(file, data_type):
     :param data_type: data type
     :return: a function which can be used to calculate probabilites
     """
-    books = reconstruct_order_book(file, data_type)
-    time_series_factory = TimeSeriesFactory(books)
-    price_forecast = PriceForecast(time_series_factory)
-    prob, freq = price_forecast.calculate_size_deciles()
-    outputs = price_forecast.calibrate_hidden_liquidity_parameter()
-    return price_forecast.calculate_probability_up_move
+    handler = PriceProbabilityHandler()
+    output = handler.handle_Request(file, data_type)
+    return output
 
 
 def efficient_price(file, data_type, start_time, end_time):
@@ -237,24 +190,6 @@ def efficient_price(file, data_type, start_time, end_time):
     :return: Time series of efficient price
     """
     # time series efficient price
-    limit_order_book = LimitOrderBook()
-
-    if data_type == 'message':
-        data_reader = MessageDataReader()
-    elif data_type == 'order':
-        data_reader = OrderBookDataReader()
-    else:
-        raise NotImplementedError('Data type not recognised')
-
-    data_reader.read_data(file)
-    lob_updater = LimitOrderBookUpdater(data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(limit_order_book)
-
-    time_series_factory = TimeSeriesFactory(lob_updater.books)
-    bid, ask = time_series_factory.create_time_series(TimeSeriesTypes.price, start_time=start_time, time_interval=5)
-    k = 150
-    # what is this k
-    eff_price = EfficientPrice(lob_updater)
-    theta = eff_price.calculate_theta(k, start_time, end_time)
-    price = eff_price.efficient_price(theta, bid)
-    return price
+    handler = EfficientPriceHandler()
+    output = handler.handle_request(file, data_type, start_time, end_time)
+    return output

@@ -31,7 +31,7 @@ def test_order_book_update():
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
     lob_updater.update_empty_order_book(lob)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
     books = lob_updater.books[-1]
     levels=5
     bid_queue = lob.get_bid_price_size(levels)
@@ -57,7 +57,7 @@ def order_book_update_series_example():
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
     lob_updater.update_empty_order_book(lob)
-    order_book_series = lob_updater.generate_order_book_series_from_message_data(lob)
+    order_book_series = lob_updater.generate_books_from_message_data(lob)
     time_series_factory = TimeSeriesFactory(lob_updater.books)
     bid_price, ask_price = time_series_factory.create_time_series_from_order_book_series(order_book_series,
                                                                                          TimeSeriesTypes.price,
@@ -77,7 +77,7 @@ def order_book_updated_example():
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
     lob_updater.update_empty_order_book(lob)
-    order_book_series = lob_updater.generate_order_book_series_from_message_data(lob)
+    order_book_series = lob_updater.generate_books_from_message_data(lob)
     # books = lob_updater.update_order_book()
     # time_series_factory = TimeSeriesFactory(books)
     time_series_factory = TimeSeriesFactory(lob_updater.books)
@@ -119,7 +119,7 @@ def order_book_data_example():
     lob_updater = LimitOrderBookUpdater(None)
     order_data = msg_data_reader.read_data(file_path+order_file)
     lob_updater.add_order_book_data(order_data)
-    lob_updater.generate_order_book_series_from_order_book_data(lob)
+    lob_updater.generate_books_from_order_book_data(lob)
     print(len(lob_updater.books))
 
 
@@ -201,7 +201,7 @@ def limit_order_frequency_example():
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
 
     num_limit_orders = lob_updater.number_of_limit_order(OrderType.Submission, 34200, 57600)
 
@@ -217,7 +217,7 @@ def limit_order_efficient_price_example():
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
 
     efficient_price = EfficientPrice(lob_updater)
 
@@ -229,7 +229,7 @@ def limit_order_efficient_price_example():
 
     bid_price = bid_price.tolist()
 
-    eff_price, spread = efficient_price.efficient_price(theta,bid_price)
+    eff_price, spread = efficient_price.calculate_efficient_price(theta, bid_price)
 
     plt.subplot(3, 1, 1)
     plt.plot(theta)
@@ -297,7 +297,7 @@ def fit_distribution_example():
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
 
     time_series_factory = TimeSeriesFactory(lob_updater.books)
 
@@ -318,7 +318,7 @@ def statistical_test_example():
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
 
     time_series_factory = TimeSeriesFactory(lob_updater.books)
 
@@ -339,7 +339,7 @@ def linear_model_example():
 
     msg_data_reader.read_data(file_path + file_name)
     lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
+    lob_updater.generate_books_from_message_data(lob)
 
     time_series_factory = TimeSeriesFactory(lob_updater.books)
 

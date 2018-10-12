@@ -151,10 +151,10 @@ if __name__ == '__main__':
     lob = LimitOrderBook()
     msg_data_reader = MessageDataReader()
 
-    msg_data_reader.read_data(file_path + file_name)
-    lob_updater = LimitOrderBookUpdater(msg_data_reader.messages)
-    lob_updater.generate_order_book_series_from_message_data(lob)
-    time_series_factory = TimeSeriesFactory(lob_updater.books)
+    messages = msg_data_reader.read_data(file_path + file_name)
+    lob_updater = LimitOrderBookUpdater(messages)
+    order_book_series = lob_updater.generate_books_from_message_data(lob)
+    time_series_factory = TimeSeriesFactory(order_book_series)
     price_forecast = PriceForecast(time_series_factory)
 
     h = 0.15

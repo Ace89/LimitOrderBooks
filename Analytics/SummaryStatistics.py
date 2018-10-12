@@ -14,6 +14,15 @@ class SummaryStatistics:
         """
         self.message_data = message_data
 
+    def number_order_buy_sell_time(self, order_type=OrderType.Submission, start_time=34200, end_time=57600):
+        if order_type is not None:
+            limit_orders = list(filter(lambda x: x.type == order_type, self.messages))
+            limit_orders = list(filter(lambda x: start_time <= x.time <= end_time, limit_orders))
+        else:
+            limit_orders = list(filter(lambda x: start_time <= x.time <= end_time, self.messages))
+
+        return len(limit_orders)
+
     def number_order_buy_sell(self, order_type=OrderType.Submission, order_direction=OrderDirection.Buy):
         message_data = list(filter(lambda x: x.type == order_type, self.message_data))
         number_order = len(list(filter(lambda x: x.direction == order_direction, message_data)))
