@@ -2,26 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a77b3-9cc5-41a0-8838-dbeb87d3625e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/EfficientPriceHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/FitDistributionHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/FitLinearModelHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/FitNonLinearModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/GenerateTimeSeriesHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/PriceForecastHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/PriceProbabilityHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/ProcessSimulationHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/ReconstructOrderBookHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/StatisticalTestsHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/SummaryStatisticsHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analytics/ChowTest.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analytics/HurstExponent.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Analytics/SimulationHelper.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Factory/DistribuionFactory.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Analytics/StatisticalTests.py" afterPath="$PROJECT_DIR$/Analytics/IStatisticalTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/EfficientPrice.py" afterPath="$PROJECT_DIR$/Analytics/EfficientPrice.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py" afterPath="$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/PriceForecast.py" afterPath="$PROJECT_DIR$/Analytics/PriceForecast.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Analytics/SummaryStatistics.py" afterPath="$PROJECT_DIR$/Analytics/SummaryStatistics.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Api.py" afterPath="$PROJECT_DIR$/Api.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/AMZN_2012-06-21_34200000_57600000_orderbook_5_subset.csv" afterPath="$PROJECT_DIR$/Data/AMZN_2012-06-21_34200000_57600000_orderbook_5_subset.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" afterPath="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/ReconstructOrderBookHandler.py" afterPath="$PROJECT_DIR$/api/ReconstructOrderBookHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/StatisticalTestsHandler.py" afterPath="$PROJECT_DIR$/api/StatisticalTestsHandler.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,164 +26,76 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49853587">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="TimeSeriesFactory.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Factory/TimeSeriesFactory.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3030">
-                  <caret line="206" column="49" lean-forward="false" selection-start-line="206" selection-start-column="49" selection-end-line="206" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#1#50#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LimitOrderBook.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LimitOrderBookUpdater.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1485">
-                  <caret line="99" column="10" lean-forward="false" selection-start-line="99" selection-start-column="10" selection-end-line="99" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#1#49#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TimeSeriesTypes.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Enums/TimeSeriesTypes.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ReconstructOrderBookHandler.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/api/ReconstructOrderBookHandler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-                  <folding>
-                    <element signature="e#1#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EfficientPrice.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/EfficientPrice.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#1#64#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PriceForecast.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/PriceForecast.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2235">
-                  <caret line="155" column="24" lean-forward="false" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SummaryStatistics.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Analytics/SummaryStatistics.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="LimitOrderBookExample.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Api.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Api.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="532">
-                  <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#1#73#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EfficientPriceHandler.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/EfficientPriceHandler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#1#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="PriceProbabilityHandler.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/PriceProbabilityHandler.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-38">
-                  <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-                  <folding>
-                    <element signature="e#1#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FitNonLinearModel.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/FitNonLinearModel.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#1#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="LimitOrderBookExample.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageDataReader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="43" column="67" lean-forward="false" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LimitOrderBookUpdater.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReconstructOrderBookHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/ReconstructOrderBookHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderBookDataReader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="98" />
+              <folding>
+                <element signature="e#1#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -210,13 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/TimeSeriesFactory.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/Analytics/SummaryStatisticsResult.py" />
-        <option value="$PROJECT_DIR$/Analytics/DataCleaning.py" />
-        <option value="$PROJECT_DIR$/Analytics/IDistribution.py" />
-        <option value="$PROJECT_DIR$/Analytics/LinearModel.py" />
-        <option value="$PROJECT_DIR$/Analytics/StatisticalTests.py" />
         <option value="$PROJECT_DIR$/Analytics/INonLinearModel.py" />
         <option value="$PROJECT_DIR$/Analytics/GARCHModel.py" />
         <option value="$PROJECT_DIR$/Analytics/ILinearModel.py" />
@@ -240,15 +140,9 @@
         <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/Order.py" />
         <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/Queue.py" />
         <option value="$PROJECT_DIR$/Factory/TimeSeriesFactory.py" />
-        <option value="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" />
-        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py" />
         <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py" />
-        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py" />
         <option value="$PROJECT_DIR$/Analytics/SummaryStatistics.py" />
-        <option value="$PROJECT_DIR$/Analytics/EfficientPrice.py" />
         <option value="$PROJECT_DIR$/Analytics/PriceForecast.py" />
-        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
-        <option value="$PROJECT_DIR$/api/ReconstructOrderBookHandler.py" />
         <option value="$PROJECT_DIR$/api/GenerateTimeSeriesHandler.py" />
         <option value="$PROJECT_DIR$/api/SummaryStatisticsHandler.py" />
         <option value="$PROJECT_DIR$/api/FitDistributionHandler.py" />
@@ -260,7 +154,20 @@
         <option value="$PROJECT_DIR$/api/PriceForecastHandler.py" />
         <option value="$PROJECT_DIR$/api/PriceProbabilityHandler.py" />
         <option value="$PROJECT_DIR$/api/EfficientPriceHandler.py" />
+        <option value="$PROJECT_DIR$/Factory/DistribuionFactory.py" />
+        <option value="$PROJECT_DIR$/Analytics/SimulationHelper.py" />
+        <option value="$PROJECT_DIR$/Analytics/EfficientPrice.py" />
+        <option value="$PROJECT_DIR$/Analytics/StatisticalTests.py" />
+        <option value="$PROJECT_DIR$/Analytics/IStatisticalTests.py" />
+        <option value="$PROJECT_DIR$/Analytics/IStatisticalTest.py" />
+        <option value="$PROJECT_DIR$/Analytics/HurstExponent.py" />
+        <option value="$PROJECT_DIR$/Analytics/ChowTest.py" />
         <option value="$PROJECT_DIR$/Api.py" />
+        <option value="$PROJECT_DIR$/api/ReconstructOrderBookHandler.py" />
+        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py" />
+        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py" />
+        <option value="$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py" />
+        <option value="$PROJECT_DIR$/Examples/LimitOrderBookExample.py" />
       </list>
     </option>
   </component>
@@ -316,24 +223,15 @@
             <path>
               <item name="LimitOrderBooks" type="b2602c69:ProjectViewProjectNode" />
               <item name="LimitOrderBooks" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LimitOrderBooks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LimitOrderBooks" type="462c0819:PsiDirectoryNode" />
-              <item name="Enums" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LimitOrderBooks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LimitOrderBooks" type="462c0819:PsiDirectoryNode" />
-              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
+              <item name="Analytics" type="462c0819:PsiDirectoryNode" />
+              <item name="LimitOrderBook" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.OrderBookDataReader">
+  <component name="RunManager" selected="Python.LimitOrderBookExample">
     <configuration name="HawkesProcess" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -455,8 +353,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.OrderBookDataReader" />
-        <item index="1" class="java.lang.String" itemvalue="Python.LimitOrderBookExample" />
+        <item index="0" class="java.lang.String" itemvalue="Python.LimitOrderBookExample" />
+        <item index="1" class="java.lang.String" itemvalue="Python.OrderBookDataReader" />
         <item index="2" class="java.lang.String" itemvalue="Python.Order" />
         <item index="3" class="java.lang.String" itemvalue="Python.PriceForecast" />
         <item index="4" class="java.lang.String" itemvalue="Python.HawkesProcess" />
@@ -510,18 +408,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.193265" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20790629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36661467" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25117004" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32866043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3525741" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3822153" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272328" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -560,12 +457,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>205</line>
+          <line>213</line>
           <option name="timeStamp" value="228" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>233</line>
+          <line>241</line>
           <option name="timeStamp" value="238" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -575,32 +472,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>259</line>
+          <line>267</line>
           <option name="timeStamp" value="254" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>267</line>
+          <line>275</line>
           <option name="timeStamp" value="255" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>165</line>
+          <line>173</line>
           <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="280" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="281" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py</url>
-          <line>22</line>
+          <line>43</line>
           <option name="timeStamp" value="282" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -610,17 +497,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>121</line>
+          <line>129</line>
           <option name="timeStamp" value="291" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>120</line>
+          <line>128</line>
           <option name="timeStamp" value="292" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>376</line>
+          <line>384</line>
           <option name="timeStamp" value="296" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -630,8 +517,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
-          <line>79</line>
+          <line>87</line>
           <option name="timeStamp" value="299" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="307" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/ReconstructOrderBookHandler.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="308" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -641,60 +538,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="307" />
+      <option name="time" value="311" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/NestedQueue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Enums/TimeSeriesSource.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/IDataReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="65" lean-forward="false" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/StudentTDistribution.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/StatisticalTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LinearRegression.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analytics/LogisticRegression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -793,16 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBookPlot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="124" column="24" lean-forward="true" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
-          <folding>
-            <element signature="e#1#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analytics/HawkesProcess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -824,41 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Factory/TimeSeriesFactory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3030">
-          <caret line="206" column="49" lean-forward="false" selection-start-line="206" selection-start-column="49" selection-end-line="206" selection-end-column="49" />
-          <folding>
-            <element signature="e#1#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="1" lean-forward="false" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-          <folding>
-            <element signature="e#1#61#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/DataReaderResult.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -866,35 +669,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBookSeries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/Order.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/SummaryStatistics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/EfficientPrice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="33" />
-          <folding>
-            <element signature="e#1#64#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -906,16 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="99" column="10" lean-forward="false" selection-start-line="99" selection-start-column="10" selection-end-line="99" selection-end-column="10" />
-          <folding>
-            <element signature="e#1#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Interfaces/IVolatility.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -923,21 +691,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Enums/TimeSeriesTypes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/GenerateTimeSeriesHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -945,9 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -955,6 +709,199 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/StatisticalTestsHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/FitLinearModelHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/FitNonLinearModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/ProcessSimulationHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/PriceForecastHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/PriceProbabilityHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Enums/TimeSeriesTypes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Factory/LinearModelFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBookSeries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="60" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Factory/DistributionFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Factory/DistribuionFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="55" lean-forward="false" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/EfficientPrice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/SummaryStatistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Factory/TimeSeriesFactory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="182" column="34" lean-forward="false" selection-start-line="182" selection-start-column="34" selection-end-line="182" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/HurstExponent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/ChowTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/SimulationHelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBookPlot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="124" column="24" lean-forward="true" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
+          <folding>
+            <element signature="e#1#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/IStatisticalTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/EfficientPriceHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="30" column="58" lean-forward="true" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="98" />
+          <folding>
+            <element signature="e#1#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/OrderBookDataReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/LimitOrderBookUpdater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="289" column="0" lean-forward="true" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Analytics/LimitOrderBook/MessageDataReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="43" column="67" lean-forward="false" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/ReconstructOrderBookHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#1#11#0" expanded="true" />
           </folding>
@@ -963,100 +910,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/LimitOrderBookExample.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="38">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/ReconstructOrderBookHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="15" column="46" lean-forward="true" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/StatisticalTestsHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/FitLinearModelHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="37" lean-forward="false" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/FitNonLinearModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/ProcessSimulationHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/PriceForecastHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/PriceProbabilityHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="5" column="49" lean-forward="false" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/EfficientPriceHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="195" column="0" lean-forward="true" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#73#0" expanded="true" />
           </folding>
         </state>
       </provider>

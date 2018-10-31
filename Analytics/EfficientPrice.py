@@ -1,6 +1,4 @@
 
-from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
-from Analytics.SummaryStatistics import SummaryStatistics
 from Enums.OrderType import OrderType
 
 import numpy as np
@@ -8,9 +6,10 @@ import numpy as np
 
 class EfficientPrice:
 
-    def __init__(self, limit_order_book_updater):
-        self.limit_order_book_updater = limit_order_book_updater
-        self.summary_stats = SummaryStatistics(limit_order_book_updater.messages)
+    def __init__(self, summary_stats):
+        #self.limit_order_book_updater = limit_order_book_updater
+        #self.summary_stats = SummaryStatistics(limit_order_book_updater.messages)
+        self.summary_stats = summary_stats
 
     def calculate_theta(self, k=150, start_time=34200, end_time=34340):
         # calculate mu
@@ -29,9 +28,9 @@ class EfficientPrice:
 
         return theta
 
-    def calculate_efficient_price(self, theta, bid_price):
+    def calculate_efficient_price(self, k, bid_price, start_time, end_time):
         spread = list()
-
+        theta = self.calculate_theta(k, start_time, end_time)
         for i in range(1, 140):
             cont = list(filter(lambda x: x <= i, theta))
             spread.append(np.sum(cont) / 150)

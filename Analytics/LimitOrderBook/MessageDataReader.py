@@ -23,7 +23,7 @@ class MessageDataReader(IDataReader):
             self.message_file = message_file
             self.messages = list()
 
-            messages = pd.read_csv(message_file)
+            messages = pd.read_csv(message_file, header=None)
             messages.columns = self.columns
 
             for i in range(0, len(messages)):
@@ -41,7 +41,7 @@ class MessageDataReader(IDataReader):
         if self.msg_frame is not None and self.message_file == message_file:
             return self.msg_frame
         else:
-            self.msg_frame = pd.read_csv(message_file)
+            self.msg_frame = pd.read_csv(message_file, header=None)
             self.msg_frame.columns = self.columns
             return self.msg_frame
 

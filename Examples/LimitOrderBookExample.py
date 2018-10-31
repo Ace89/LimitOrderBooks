@@ -12,16 +12,24 @@ from Analytics.SummaryStatistics import SummaryStatistics
 from Factory.TimeSeriesFactory import TimeSeriesFactory
 from Analytics.StudentTDistribution import StudentTDistribution
 from Analytics.LimitOrderBookPlot import LimitOrderBookPlot
-from Analytics.StatisticalTests import StatisticalTests
+from Analytics.IStatisticalTest import IStatisticalTest
 from Analytics.LinearRegression import LinearRegression
 from Analytics.GARCHModel import GARCHModel
 from Analytics.HawkesProcess import HawkesProcess
 from Enums.OrderType import OrderType
 from Enums.TimeSeriesTypes import TimeSeriesTypes
 
+import Api
+
 file_path = '~/Documents/Software Engineering/Dissertation/LimitOrderBooks/Data/'
 file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
 order_file = 'AMZN_2012-06-21_34200000_57600000_orderbook_5_subset.csv'
+
+
+def test_api_orderbook_reconstruction():
+    # data type: 'order_data', 'message'
+    output = Api.reconstruct_order_book(file_path+order_file, file_path+file_name, 'message')
+    pass
 
 
 def test_order_book_update():
@@ -326,7 +334,7 @@ def statistical_test_example():
                                                                   start_time,
                                                                   time_interval)
 
-    statistical_tests = StatisticalTests()
+    statistical_tests = IStatisticalTest()
     test_value = statistical_tests.hurst_exponent(bid_price.tolist(), lags)
 
 
@@ -409,7 +417,7 @@ def student_distribution_fitting():
 if __name__ == '__main__':
     #test_order_book_update()
     #order_book_updated_example()
-    order_book_update_series_example()
+    #order_book_update_series_example()
     #create_time_series_example()
     #limit_order_frequency_example()
     #limit_order_efficient_price_example()
@@ -419,3 +427,4 @@ if __name__ == '__main__':
     #order_book_data_example()
     #gaussian_distribution_fitting()
     #student_distribution_fitting()
+    test_api_orderbook_reconstruction()

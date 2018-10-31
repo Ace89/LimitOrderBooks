@@ -10,6 +10,7 @@ class OrderBookDataReader(IDataReader):
         self.message_file = message_file
         self.levels = levels
         self.headers = self.__generate_column_headers()
+        self.message_data_reader = MessageDataReader()
 
     def read_data(self, order_message_file):
         """
@@ -19,10 +20,9 @@ class OrderBookDataReader(IDataReader):
         """
         import pandas as pd
 
-        msg_data_reader = MessageDataReader()
-        msg_data = msg_data_reader.read_data_frame(self.message_file)
+        msg_data = self.message_data_reader.read_data_frame(self.message_file)
 
-        data = pd.read_csv(order_message_file)
+        data = pd.read_csv(order_message_file, header=None)
         data.columns = self.headers
         data['Time'] = msg_data['Time']
         self.messages = data

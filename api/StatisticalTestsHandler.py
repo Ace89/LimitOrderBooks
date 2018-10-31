@@ -1,7 +1,7 @@
 
 import abc
 
-from Analytics.StatisticalTests import StatisticalTests
+from Analytics.IStatisticalTest import IStatisticalTest
 from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
 
 
@@ -22,7 +22,7 @@ class StatisticalTestsHandler(Handler):
             raise NotImplementedError('Time series type not recognised')
 
         if True:
-            stat_test = StatisticalTests()
+            stat_test = IStatisticalTest()
 
             if test == 'chow':
                 return stat_test.chow_test()

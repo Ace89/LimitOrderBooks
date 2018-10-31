@@ -1,24 +1,8 @@
 
 from Analytics.LimitOrderBook.MessageDataReader import MessageDataReader
-from Analytics.LimitOrderBook.OrderBookDataReader import OrderBookDataReader
-from Analytics.LimitOrderBook.LimitOrderBookUpdater import LimitOrderBookUpdater
-from Analytics.LimitOrderBook.LimitOrderBook import LimitOrderBook
 from Analytics.SummaryStatistics import SummaryStatistics
 from Analytics.LimitOrderBookPlot import LimitOrderBookPlot
-from Analytics.StudentTDistribution import StudentTDistribution
-from Analytics.LimitOrderBookSeries import LimitOrderBookSeries
-from Analytics.StatisticalTests import StatisticalTests
-from Analytics.LinearRegression import LinearRegression
-from Analytics.LogisticRegression import LogisticRegression
-from Analytics.GARCHModel import GARCHModel
-from Analytics.HawkesProcess import HawkesProcess
-from Analytics.PriceForecast import PriceForecast
-from Analytics.EfficientPrice import EfficientPrice
-from Analytics.ExtractPrices import ExtractPrices
-from sklearn import svm
-from Factory.TimeSeriesFactory import TimeSeriesFactory
 
-from Enums.TimeSeriesTypes import TimeSeriesTypes
 
 from api.ReconstructOrderBookHandler import ReconstructOrderBookHandler
 from api.GenerateTimeSeriesHandler import GenerateTimeSeriesRequestHandler
@@ -37,14 +21,14 @@ file_name = 'AMZN_2012-06-21_34200000_57600000_message_5_subset.csv'
 order_file = 'AMZN_2012-06-21_34200000_57600000_orderbook_5_subset.csv'
 
 
-def reconstruct_order_book(file, data_type):
+def reconstruct_order_book(order_file, message_data_file, data_type):
     """
     :param file: Data file
     :param data_type: Message data or Order data
     :return: A collection of books
     """
     order_book_handler = ReconstructOrderBookHandler()
-    order_book_series = order_book_handler.handle_request(file, data_type)
+    order_book_series = order_book_handler.handle_request(order_file, message_data_file, data_type)
 
     return order_book_series
 

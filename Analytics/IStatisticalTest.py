@@ -1,31 +1,25 @@
 
-import numpy as np
+import abc
 
 
-class StatisticalTests:
+class IStatisticalTest(metaclass=abc.ABCMeta):
 
+    @abc.abstractmethod
+    def calculate_test(self, **kwargs):
+        raise NotImplementedError('')
+
+"""
     def __init__(self):
         None
 
     @staticmethod
     def sum_squared_errors(y, y_hat):
-        """
-        :param y:
-        :param y_hat:
-        :return:
-        """
+        
         return np.sum((y - y_hat) ** 2)
 
     @staticmethod
     def chow_test(x, y, n1, n2, k=2):
-        """
-        :param x:
-        :param y:
-        :param n1:
-        :param n2:
-        :param k:
-        :return:
-        """
+        
         from Analytics.LinearRegression import LinearRegression
         linear_model = LinearRegression()
         x1 = x[0:n1]
@@ -44,12 +38,9 @@ class StatisticalTests:
 
     @staticmethod
     def hurst_exponent(time_series, lags):
-        """
-        :param time_series:
-        :param lags:
-        :return:
-        """
+        
         tau = [np.sqrt(np.std(np.subtract(time_series[lag:], time_series[:-lag]))) for lag in lags]
         m = np.polyfit(np.log(lags), np.log(tau), 1)
         hurst = m[0] * 2.0
         return hurst
+"""
