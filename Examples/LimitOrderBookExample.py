@@ -32,6 +32,12 @@ def test_api_orderbook_reconstruction():
     pass
 
 
+def test_api_generate_timeseries():
+    orderbook_series = Api.reconstruct_order_book(file_path+order_file, file_path+file_name, 'order_book')
+    bid_volume, ask_volume = Api.generate_time_series('price', orderbook_series, 34200, 5)
+    pass
+
+
 def test_order_book_update():
     lob = LimitOrderBook()
     msg_data_reader = MessageDataReader()
@@ -427,4 +433,5 @@ if __name__ == '__main__':
     #order_book_data_example()
     #gaussian_distribution_fitting()
     #student_distribution_fitting()
-    test_api_orderbook_reconstruction()
+    #test_api_orderbook_reconstruction()
+    test_api_generate_timeseries()

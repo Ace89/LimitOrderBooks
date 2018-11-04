@@ -26,10 +26,9 @@ class TimeSeriesFactory:
             index = list()
             book_num = 1
             for book in self.books:
-                #if book[0][-1].submission_time > start_time:
                 if book.time >= start_time:
-                    bid_output.append(book.bid_queue)
-                    ask_output.append(book.ask_queue)
+                    bid_output.append(book.bid_queue.queue[0].price)
+                    ask_output.append(book.ask_queue.queue[0].price)
                     index.append(start_time)
                     start_time += time_interval
                 book_num += 1
@@ -37,37 +36,42 @@ class TimeSeriesFactory:
         elif time_series_types == TimeSeriesTypes.size:
             bid_output = list()
             ask_output = list()
+            index = list()
             for book in self.books:
                 if book.time > start_time:
-                    bid_output.append(book[0][-1].size)
-                    ask_output.append(book[1][0].size)
+                    bid_output.append(book.bid_queue.queue[0].size)
+                    ask_output.append(book.ask_queue.queue[0].price)
+                    index.append(start_time)
                     start_time += time_interval
-            return bid_output, ask_output
+            return pd.Series(bid_output, index=index), pd.Series(ask_output, index=index)
         elif time_series_types == TimeSeriesTypes.full_size:
             bid_output = list()
             ask_output = list()
+            index = list()
             for book in self.books:
-                if book[0][-1].submission_time > start_time:
-                    bid_orders = [book[0][i].size for i in range(0, len(book[0]))]
-                    ask_orders = [book[1][i].size for i in range(0, len(book[1]))]
+                if book.time > start_time:
+                    bid_orders = [order.size for order in book.bid_queue.queue]
+                    ask_orders = [order.size for order in book.ask_queue.queue]
                     bid_output.append(np.sum(bid_orders))
                     ask_output.append(np.sum(ask_orders))
+                    index.append(start_time)
                     start_time += time_interval
-            return bid_output, ask_output
+            return pd.Series(bid_output, index=index), pd.Series(ask_output, index=index)
         elif time_series_types == TimeSeriesTypes.mid_price:
             bid_price, ask_price = self.create_time_series(TimeSeriesTypes.price,start_time, time_interval)
+            index= bid_price.index
             bid_price=bid_price.tolist()
             ask_price = ask_price.tolist()
             mid_price = list()
             for i in range(0, len(bid_price)):
                 mid_price.append(0.5 * (bid_price[i] + ask_price[i]))
-            return mid_price
+            return pd.Series(mid_price, index=index)
         elif time_series_types == TimeSeriesTypes.imbalance:
             imbalance_output = list()
             index = list()
             for book in self.books:
-                if book[0][-1].submission_time > start_time:
-                    imbalance_output.append(book[1][0].price - book[0][-1].price)
+                if book.time > start_time:
+                    imbalance_output.append(book.ask_queue.queue[0].price - book.bid_queue.queue[0].price)
                     index.append(start_time)
                     start_time += time_interval
             return pd.Series(imbalance_output, index=index)
